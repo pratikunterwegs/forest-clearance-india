@@ -41,7 +41,7 @@ For the sake of the analysis, we analyzed data prior to 2014 and clubbed the abo
 
 Now, let's see what the forest land is being converted to:
 
-![Area by Category for 2014](pre2014_Area_vs_Category.png)
+![Area by Category for 2014](https://github.com/vjjan91/WithdrawEIA2020/blob/master/Figures/post2014_Area_vs_Category.png)
 
 Shown below is the overall area in hectares approv
 
