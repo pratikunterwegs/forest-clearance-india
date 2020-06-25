@@ -28,10 +28,10 @@ The data on forest clearances has been stored in 5 separate excel files:
 
 1. All data prior to 2014
 2. Data post 2014 is subdivided by the MOEF&CC into:  
-    a) Allocation of fresh forest land (Form-A)	  
-    b) Application Under Section 2(iii)	  
-    c) Renewal of lease (Form-B)  	
-    d) Prospecting of Minerals (Form-C)  
+    a) Allocation of fresh forest land (Form-A)	   
+    b) Application Under Section 2(iii)	     
+    c) Renewal of lease (Form-B)         	  
+    d) Prospecting of Minerals (Form-C)    
 
 For the sake of the analysis, we analyzed data prior to 2014 and clubbed the above four categories into a single category on clearances post 2014. Secondly, I included those proposals that are currently approved / pending to be approved (*See code for further details*).
 
