@@ -33,7 +33,7 @@ The data on forest clearances has been stored in 5 separate excel files:
     c) Renewal of lease (Form-B)         	  
     d) Prospecting of Minerals (Form-C)    
 
-For the sake of the analysis, we analyzed data prior to 2014 and clubbed the above four categories into a single category on clearances post 2014. Secondly, I included those proposals that are currently approved / pending to be approved (*See code for further details*).
+For the sake of the analysis, we clubbed the above four categories into a single category on clearances post 2014. Secondly, the analysis only includes area in hectares across those proposals that have been categorized as currently approved / pending to be approved (*See code for further details*).
 
 **Between 1975 and 2014, 84.68% of proposals submitted to the MOEF&CC were approved or pending to be approved. Over 21,63,215 hectares of forests were approved / pending approval to be cleared.**  
 
