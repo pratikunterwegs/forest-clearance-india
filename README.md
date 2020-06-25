@@ -33,19 +33,39 @@ The data on forest clearances has been stored in 5 separate excel files:
     c) Renewal of lease (Form-B)	
     d) Prospecting of Minerals (Form-C)
 
-For the sake of the analysis, we analyzed data prior to 2014 and clubbed the above four categories into a single category on clearances post 2014. 
+For the sake of the analysis, we analyzed data prior to 2014 and clubbed the above four categories into a single category on clearances post 2014. Secondly, I included those proposals that are currently approved / pending to be approved (*See code for further details*).
 
-**Between 1975 and 2014, 84.68% of proposals submitted to the MOEF&CC were approved or pending to be approved**  
+**Between 1975 and 2014, 84.68% of proposals submitted to the MOEF&CC were approved or pending to be approved. Over 21,63,215 hectares of forests were approved / pending approval to be cleared.**  
 
-**Between 2014 to 2020, 99.3% of proposals submitted to the MOEF&CC were approved or pending to be approved**
+**Between 2014 to 2020, 99.3% of proposals submitted to the MOEF&CC were approved or pending to be approved. Over 14,82,247 hectares of forests were approved/pending approval to be cleared.**  
 
-Now, let's see what the forest land is being converted to:
+Prior to 2014, majority of forest land was approved towards encroachments and mining assicated projects
 
-![Area by Category for 2014](https://github.com/vjjan91/WithdrawEIA2020/blob/master/Figures/post2014_Area_vs_Category.png)
+![Area by Category pre 2014](https://github.com/vjjan91/WithdrawEIA2020/blob/master/Figures/pre2014_Area_vs_Category.png)
 
-Shown below is the overall area in hectares approv
+Post 2014, majority of forest land was approved towards mining projects
 
+![Area by Category post 2014](https://github.com/vjjan91/WithdrawEIA2020/blob/master/Figures/post2014_Area_vs_Category.png)
 
+Prior to 2014, large chunks of forested land were approved for clearing in the years 1984, 1989, 1995 and 2006
+
+![Area by Year pre 2014](https://github.com/vjjan91/WithdrawEIA2020/blob/master/Figures/pre2014_Area_by_Year.png)
+
+Post 2014, large chunks of forested land were approved for clearing in the year 2016.Notice, that **the amount of forest area approved for clearing in 2016 was more than double the amount of forest area approved for clearing in 2006 alone** 
+
+![Area by Year post 2014](https://github.com/vjjan91/WithdrawEIA2020/blob/master/Figures/post2014_Area_by_Year.png)
+
+Prior to 2014, a large area of forests were approved/pending to be cleared in Madhya Pradesh followed by Arunachal Pradesh - two states that possess an astounding level of biodiversity.
+
+![Area by State pre 2014](https://github.com/vjjan91/WithdrawEIA2020/blob/master/Figures/pre2014_Area_by_State.png)
+
+Post 2014, Andhra Pradesh and Telangana are stated to lose the most chunks of forest land. 
+
+![Area by State post 2014](https://github.com/vjjan91/WithdrawEIA2020/blob/master/Figures/post2014_Area_by_State.png)
+
+**The analysis suggests that there has been a significant increase in the rate of environmental clearances for the forest category alone since 2014. Further, the rate of rejection for proposals is less than 1%. In addition, the proportion of area stated to be cleared since 2014 is over 68% of what was stated to be cleared between 1975 and 2014.**
+
+*For further analysis on area lost by category by state across two time periods, please visit the figures folder*
 
 
 
