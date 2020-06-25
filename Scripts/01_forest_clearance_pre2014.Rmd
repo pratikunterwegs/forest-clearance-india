@@ -1,0 +1,228 @@
+---
+title: "Forest clearance data (prior to 2014)"
+output:
+  html_document:
+    df_print: paged
+---
+
+There are three types of clearance data on the PARIVESH portal, hosted by the MOEF&CC. These include: Environmental, Forests and Wildlife. The data for Forests and Wildlife are quantifiable, although the data for Wildlife was not available as an excel file and this information had to be scraped from their website. 
+
+All analysis being performed is through the R programming environment. Please feel free to edit and use this code as you please. The data used for this purpose is available through the 'Data' folder. 
+
+```{r}
+# Load required libraries
+library(dplyr)
+library(ggplot2)
+library(RColorBrewer)
+library(readxl)
+library(lubridate)
+
+```
+
+
+First, we will carry out some exploratory data analysis using the Forest clearance data. The data available has been stored in 5 separate excel files:
+
+1. All data prior to 2014
+2. Data after 2014 is subdivided into:
+    a) Allocation of fresh forest land (Form-A)	
+    b) Application Under Section 2(iii)	
+    c) Renewal of lease (Form-B)	
+    d) Prospecting of Minerals (Form-C)
+
+
+Let's first analyze the data prior to 2014
+
+```{r}
+
+## 1. Let's read in the data prior to 2014
+pre_2014 <- read.csv("C:\\Users\\Vijay\\Desktop\\envt_clearance\\forest_clearance\\for_clear_before_2014.csv",stringsAsFactors = F)
+head(pre_2014) # Take a look at the first 6 records
+names(pre_2014)
+
+# Shall subset certain categories
+pre_2014 <- pre_2014[,c(4,5,7,8,9,10)]
+
+# We have 6 categories: Proposal Name, Category the proposal falls under, Area applied for, Date (around which it was approved?), State Name and Proposal Status
+
+# Convert the date category from a factor to date
+names(pre_2014)[4] <- "DATE"
+pre_2014$DATE <- year(dmy(pre_2014$DATE)) # Keeping only years for now
+
+```
+
+
+A couple of analyses and plots for the forest clearance data:  
+
+The total number of forest clearances prior to 2014 that were approved and/or in other categories including pending etc was 31,883  
+
+The total number of forest clearances prior to 2014 that were rejected / withdrawn / closed was 5,768  
+
+Let's summarize the area of forests cleared vs. those not cleared (Rejected proposals)  
+
+21,63,215 hectares of forests were approved to be cleared prior to 2014/pending   
+8,48,475 hectares of forests were not cleared or proposals were rejected/withdrawn  
+
+In other words, over 84.68% of proposals submitted were approved or pending to be approved! 
+
+```{r}
+
+# Area saved / rejected proposals
+n_reject <- pre_2014 %>% select(PROPOSAL_STATUS,AREA_APPLIED) %>%
+  group_by(PROPOSAL_STATUS, AREA_APPLIED) %>%
+  filter(PROPOSAL_STATUS=="REJECTED" | PROPOSAL_STATUS=="CLOSED" |
+         PROPOSAL_STATUS=="RETURNED" | PROPOSAL_STATUS=="REVOKED" |
+           PROPOSAL_STATUS=="WITHDRAWN") %>% summarise() %>% tally(AREA_APPLIED)%>%
+  tally(n)
+
+n_reject # 8,48,475 hectares of forests were not cleared prior to 2014
+
+# Area cleared / approved proposals and/or pending
+n_appro <- pre_2014 %>% select(PROPOSAL_STATUS,AREA_APPLIED) %>%
+  group_by(PROPOSAL_STATUS, AREA_APPLIED) %>% summarise() %>%   tally(AREA_APPLIED) %>% tally(n) - n_reject
+
+n_appro # 21,63,215 hectares of forests were cleared or approved to be cleared / pending
+
+```
+
+Let's calculate the area of forests approved or pending to be approved as function of the category they were binned under:
+
+Encroachments and mining contributed most to the loss of forest area prior to 2014.
+
+```{r}
+
+# Here onwards we will use only the proposals that were approved or pending to be approved
+appro_pre_2014 <- pre_2014 %>%
+  filter(!(PROPOSAL_STATUS=="REJECTED" | PROPOSAL_STATUS=="CLOSED" |
+         PROPOSAL_STATUS=="RETURNED" | PROPOSAL_STATUS=="REVOKED" |
+           PROPOSAL_STATUS=="WITHDRAWN")) %>%
+  filter(!DATE=="1882")
+
+# Data by category and area
+cat_area <- appro_pre_2014 %>% group_by(CATEGORY) %>%
+  summarise(Total_area = sum(AREA_APPLIED))
+
+# Create a plot
+cat_plot <- ggplot(cat_area, aes(x = CATEGORY , y = Total_area, fill= CATEGORY)) +   
+  geom_bar(stat="identity",color="black", size=0.08,position=position_dodge()) +
+  geom_text(aes(label=round(Total_area)), position=position_dodge(width=1),size=3, vjust=-0.5)+ theme_minimal() +
+  labs(x="Category", y="Total Area (in hectares)") +
+  theme(axis.text.x = element_text(angle=45, hjust=1),
+        axis.ticks = element_blank(),
+        legend.position = "none") +
+  scico::scale_fill_scico_d(palette = "roma")
+
+cat_plot
+
+ggsave(cat_plot, filename = "C:\\Users\\Vijay\\Desktop\\envt_clearance\\cat_area_pre2014.png",
+       width=12, height=7,dpi = 300)
+
+```
+
+
+Calculating area of forests approved to be cleared or pending to be cleared per year
+
+See years 1984, 1989, 1995 and 2006
+
+```{r}
+# Data by year and area
+appro_pre_2014$DATE <- as.character(appro_pre_2014$DATE)
+
+area_year <- appro_pre_2014 %>% group_by(DATE) %>%
+  summarise(Total_area = sum(AREA_APPLIED))
+
+# Create a plot
+area_year_plot <- ggplot(area_year, aes(x = DATE , y = Total_area)) +   
+  geom_bar(stat="identity",color="black", size=0.08, position=position_dodge(), fill="blue",alpha=0.4) +
+  geom_text(aes(label=round(Total_area)), position=position_dodge(width=1),size=3, vjust=-0.5)+ theme_minimal() +
+  labs(x="Year", y="Total Area (in hectares)") +
+  theme(axis.text.x = element_text(angle=45, hjust=1),
+        axis.ticks = element_blank(),
+        legend.position = "none")
+
+area_year_plot
+
+ggsave(area_year_plot, filename = "C:\\Users\\Vijay\\Desktop\\envt_clearance\\year_area_pre2014.png",
+       width=12, height=7,dpi = 300)
+
+```
+
+Lets calculate the area of forests approved or pending to be approved as function of the state.  
+
+```{r}
+state_area <- appro_pre_2014 %>% group_by(STATE_NAME) %>%
+  summarise(Total_area = sum(AREA_APPLIED))
+
+# Create a plot
+state_area_plot <- ggplot(state_area, aes(x = STATE_NAME , y = Total_area, fill=STATE_NAME)) +geom_bar(stat="identity",color="black", size=0.08,position=position_dodge()) +
+  geom_text(aes(label=round(Total_area)), position=position_dodge(width=1),size=3, vjust=-0.5)+
+  theme_minimal() +
+  labs(x="State", y="Total Area (in hectares)") +
+  theme(axis.text.x = element_text(angle=45, hjust=1),
+        axis.ticks = element_blank(),
+        legend.position = "none") +
+  scico::scale_fill_scico_d(palette = "roma")
+
+state_area_plot
+
+ggsave(state_area_plot, filename = "C:\\Users\\Vijay\\Desktop\\envt_clearance\\state_area_pre2014.png",
+       width=12, height=7,dpi = 300)
+
+```
+
+
+Lets calculate the area of forests approved or pending to be approved as function of the state and the category. 
+
+Madhya Pradesh lost a vast chunk of it's forests prior to 2014, followed by Arunachal Pradesh - two states that possess an astounding level of biodiversity
+
+```{r}
+# group by category and state
+state_area <- appro_pre_2014 %>% group_by(CATEGORY, STATE_NAME) %>%
+  summarise(Total_area=sum(AREA_APPLIED))
+
+nb.cols <- 23
+mycolors <- colorRampPalette(brewer.pal(11, "Paired"))(nb.cols)
+
+state_plot <- ggplot(state_area, aes(x = CATEGORY , y = Total_area, fill= CATEGORY)) +   
+  geom_bar(stat="identity",color="black",size=0.08, position=position_dodge()) +
+  geom_text(aes(label=round(Total_area)), position=position_dodge(width=1),size=1.8, vjust=-0.5) + theme_minimal() +
+  facet_wrap(~STATE_NAME) +
+  labs(x="Category", y="Total Area (in hectares)") +
+  theme(axis.text.x = element_blank(),
+        axis.ticks = element_blank(),
+        legend.title = element_text(size=8), 
+        legend.text=element_text(size=8)) +
+  scale_fill_manual(values = mycolors)
+ 
+state_plot
+
+ggsave(state_plot, filename = "C:\\Users\\Vijay\\Desktop\\envt_clearance\\state_cat_area_pre2014.png",
+       width=20, height=10,dpi = 300)
+```
+
+
+Lets calculate the area of forests approved or pending to be approved as function of the category and year
+
+Encroachments and mining - 1989, 2005 and 1995
+
+```{r}
+
+cat_year <- appro_pre_2014 %>% group_by(CATEGORY, DATE) %>% 
+  summarise(Total_area = sum(AREA_APPLIED))
+
+cat_year_plot <- ggplot(cat_year, aes(x = CATEGORY , y = Total_area, fill= CATEGORY)) + 
+  geom_bar(stat="identity",color="black",size=0.08, position=position_dodge()) +
+  geom_text(aes(label=round(Total_area)), position=position_dodge(width=1),size=1.8, vjust=-0.5) + theme_minimal() +
+  facet_wrap(~DATE) +
+  labs(x="Year", y="Total Area (in hectares)") + scale_fill_manual(values = mycolors) +
+   theme(axis.text.x = element_blank(),
+        axis.ticks = element_blank(),
+        legend.title = element_text(size=5), 
+        legend.text=element_text(size=5))
+
+cat_year_plot
+
+ggsave(cat_year_plot, filename = "C:\\Users\\Vijay\\Desktop\\envt_clearance\\cat_year_pre2014.png",
+       width=20, height=10,dpi = 300)
+  
+
+```
