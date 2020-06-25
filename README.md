@@ -27,11 +27,11 @@ All analysis was performed through the R programming environment. Please feel fr
 The data on forest clearances has been stored in 5 separate excel files:
 
 1. All data prior to 2014
-2. Data post 2014 is subdivided by the MOEF&CC into:
-    a) Allocation of fresh forest land (Form-A)	
-    b) Application Under Section 2(iii)	
-    c) Renewal of lease (Form-B)	
-    d) Prospecting of Minerals (Form-C)
+2. Data post 2014 is subdivided by the MOEF&CC into:  
+    a) Allocation of fresh forest land (Form-A)	  
+    b) Application Under Section 2(iii)	  
+    c) Renewal of lease (Form-B)  	
+    d) Prospecting of Minerals (Form-C)  
 
 For the sake of the analysis, we analyzed data prior to 2014 and clubbed the above four categories into a single category on clearances post 2014. Secondly, I included those proposals that are currently approved / pending to be approved (*See code for further details*).
 
@@ -51,7 +51,7 @@ Prior to 2014, large chunks of forested land were approved for clearing in the y
 
 ![Area by Year pre 2014](https://github.com/vjjan91/WithdrawEIA2020/blob/master/Figures/pre2014_Area_by_Year.png)
 
-Post 2014, large chunks of forested land were approved for clearing in the year 2016.Notice, that **the amount of forest area approved for clearing in 2016 was more than double the amount of forest area approved for clearing in 2006 alone** 
+Post 2014, large chunks of forested land were approved for clearing in the year 2016. Notice, that **the amount of forest area approved for clearing in 2016 was more than double the amount of forest area approved for clearing in 2006 alone.** 
 
 ![Area by Year post 2014](https://github.com/vjjan91/WithdrawEIA2020/blob/master/Figures/post2014_Area_by_Year.png)
 
@@ -63,7 +63,7 @@ Post 2014, Andhra Pradesh and Telangana are stated to lose the most chunks of fo
 
 ![Area by State post 2014](https://github.com/vjjan91/WithdrawEIA2020/blob/master/Figures/post2014_Area_by_State.png)
 
-**The analysis suggests that there has been a significant increase in the rate of environmental clearances for the forest category alone since 2014. Further, the rate of rejection for proposals is less than 1%. In addition, the proportion of area stated to be cleared since 2014 is over 68% of what was stated to be cleared between 1975 and 2014.**
+**The analysis suggests that there has been a significant increase in the rate of environmental clearances for the forest category alone since 2014. Further, the rate of rejection for proposals since 2014 is less than 1%. In addition, the proportion of area stated to be cleared since 2014 is over 68% of what was stated to be cleared between 1975 and 2014.**
 
 *For further analysis on area lost by category by state across two time periods, please visit the figures folder*
 
