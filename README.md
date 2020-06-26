@@ -18,7 +18,7 @@ Well, we decided to obtain and analyze the raw data on clearances from [PARIVESH
 
 ## Data on Environmental Clearances
 
-Environmental clearance data is organized under three sub-headings on the PARIVESH portal, hosted by the MOEF&CC. These include: Environmental, Forests and Wildlife. The data for Forests and Wildlife are quantifiable, while the data for 'Environmental clearances' does not have any quantifiable information associated with it. In other words, these proposals lack any information on the area of forests stated to be cleared. At present, data for forests are available as an excel file on the portal (albeit, after much digging and searching). Data for Wildlife clearances was not available as an excel file and this information *is currently being scraped* from their website. 
+Environmental clearance data is organized under three sub-headings on the PARIVESH portal, hosted by the MOEF&CC. These include: Environmental, Forests and Wildlife. The data for Forests and Wildlife are quantifiable, while the data for 'Environmental clearances' does not have any quantifiable information associated with it. In other words, these proposals lack any information on the area of forests stated to be cleared. At present, data for forests are available as an excel file on the portal (albeit, after much digging and searching). Data for Wildlife clearances was not available as an excel file. 
 
 All analysis was performed through the R programming environment. Please feel free to edit and use the code as you please. The data used for this purpose is available through the 'Data' folder. *This folder will be updated as more data is collected*
 
