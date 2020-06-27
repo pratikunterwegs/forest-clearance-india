@@ -3,6 +3,8 @@ title: "Forest clearance data post 2014"
 output:
   html_document:
     df_print: paged
+editor_options: 
+  chunk_output_type: console
 ---
 
 There are three types of clearance data on the PARIVESH portal, hosted by the MOEF&CC. These include: Environmental, Forests and Wildlife. The data for Forests and Wildlife are quantifiable, although the data for Wildlife was not available as an excel file and this information needs to be obtained from their website. 
@@ -17,6 +19,10 @@ library(RColorBrewer)
 library(readxl)
 library(lubridate)
 library(readr)
+
+# plotting
+library(scico)
+library(ggrepel)
 ```
 
 
@@ -178,13 +184,14 @@ Lets calculate the area of forests approved or pending to be approved as functio
 library(sf)
 
 # read in states
-states <- st_read("Data/spatial/ne_10m_admin_1_states_provinces.shp") %>% 
-  filter(admin == "India") %>% 
-  mutate(name = stringr::str_to_title(name)) %>% 
-  select(name) %>% 
-  mutate(name = case_when(
-    name == "Uttaranchal" ~ "Uttarakhand",
-    T ~ name))
+states <- st_read("Data/spatial/indian_states.gpkg") %>% 
+  mutate(state_name = as.character(state_name),
+         state_name = case_when(
+    state_name == "Jammu & Kashmir" ~ "Jammu And Kashmir",
+    state_name == "Arunanchal Pradesh" ~ "Arunachal Pradesh",
+    state_name == "Andaman & Nicobar Island" ~ "Andaman And Nicobar",
+    T ~ state_name
+  ))
 
 state_area <- appro_post_2014 %>% 
   group_by(state_name) %>%
@@ -192,19 +199,22 @@ state_area <- appro_post_2014 %>%
   ungroup() %>% 
   mutate(state_name = stringr::str_to_title(state_name)) %>% 
   mutate(state_name = case_when(
-    state_name == "Dadar & Nagar Haveli" ~ "Dadra & Nagar Haveli",
+    state_name == "Dadar & Nagar Haveli" ~ "Dadara & Nagar Haveli",
     state_name == "Pondicherry" ~ "Puducherry",
+    state_name == "Orissa" ~ "Odisha",
+    state_name == "Delhi" ~ "NCT of Delhi",
     T ~ state_name
   ))
 
 # join spatial with area
 states <- states %>% 
   left_join(state_area,
-            by = c("name" = "state_name")) %>% 
+            by = c("state_name" = "state_name")) %>% 
   bind_cols(as_tibble(st_coordinates(st_centroid(states))))
 
 # Create a plot
-state_area_plot_post2014 <- ggplot(states) +
+state_area_plot_post2014 <-
+ggplot(states) +
   geom_sf(aes(fill = Total_area),
           col = "black",
           size = 0.1)+
@@ -217,6 +227,7 @@ state_area_plot_post2014 <- ggplot(states) +
   scale_fill_scico(palette = "hawaii",
                        direction = -1,
                        trans = "sqrt",
+                   na.value = "black",
                    name = "Total area",
                    breaks = c(0.1, 0.5, 1, 2, 4, 6) * 1e5,
                    labels = scales::comma)+
