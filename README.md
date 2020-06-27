@@ -59,9 +59,17 @@ Prior to 2014, a large area of forests were approved/pending to be cleared in Ma
 
 ![Area by State pre 2014](https://github.com/vjjan91/WithdrawEIA2020/blob/master/Figures/pre2014_Area_by_State.png)
 
+A map of area of forests approved/pending to be cleared (prior to 2014)
+
+![Area by State pre 2014 map](https://github.com/vjjan91/WithdrawEIA2020/blob/master/Figures/state_area_pre2014.png)
+
 Post 2014, Andhra Pradesh and Telangana are stated to lose the most chunks of forest land. 
 
 ![Area by State post 2014](https://github.com/vjjan91/WithdrawEIA2020/blob/master/Figures/post2014_Area_by_State.png)
+
+A map of area of forests approved/pending to be cleared (post 2014)
+
+![Area by State post 2014 map](https://github.com/vjjan91/WithdrawEIA2020/blob/master/Figures/state_area_post2014.png)
 
 **The analysis suggests that there has been a significant increase in the rate of environmental clearances for the forest category alone since 2014. Further, the rate of rejection for proposals since 2014 is less than 1%. In addition, the proportion of area stated to be cleared since 2014 is over 68% of what was stated to be cleared between 1975 and 2014.**
 
