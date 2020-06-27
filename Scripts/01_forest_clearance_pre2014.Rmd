@@ -5,7 +5,7 @@ output:
     df_print: paged
 ---
 
-There are three types of clearance data on the PARIVESH portal, hosted by the MOEF&CC. These include: Environmental, Forests and Wildlife. The data for Forests and Wildlife are quantifiable, although the data for Wildlife was not available as an excel file and this information had to be scraped from their website. 
+There are three types of clearance data on the PARIVESH portal, hosted by the MOEF&CC. These include: Environmental, Forests and Wildlife. The data for Forests and Wildlife are quantifiable, although the data for Wildlife was not available as an excel file and this information need to be obtained from the website. 
 
 All analysis being performed is through the R programming environment. Please feel free to edit and use this code as you please. The data used for this purpose is available through the 'Data' folder. 
 
