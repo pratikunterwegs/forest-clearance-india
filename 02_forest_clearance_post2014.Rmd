@@ -16,7 +16,7 @@ library(ggplot2)
 library(RColorBrewer)
 library(readxl)
 library(lubridate)
-
+library(readr)
 ```
 
 
@@ -35,10 +35,10 @@ In this script, we will analyze all data post 2014
 ```{r}
 
 ## 1. Let's read in the .csv's for data post 2014
-dat1 <- read.csv("C:\\Users\\Vijay\\Desktop\\envt_clearance\\forest_clearance\\for_clearance_forestLand_after_2014.csv",stringsAsFactors = F)
-dat2 <- read.csv("C:\\Users\\Vijay\\Desktop\\envt_clearance\\forest_clearance\\for_clear_form2_after_2014.csv",stringsAsFactors = F)
-dat3 <- read.csv("C:\\Users\\Vijay\\Desktop\\envt_clearance\\forest_clearance\\for_clear_leaseRenew_after_2014.csv",stringsAsFactors = F)
-dat4 <- read.csv("C:\\Users\\Vijay\\Desktop\\envt_clearance\\forest_clearance\\for_clear_miningProspect_after_2014.csv",stringsAsFactors = F)
+dat1 <- read_csv("Data/forest_clearance/for_clearance_forestLand_after_2014.csv")
+dat2 <- read_csv("Data/forest_clearance/for_clear_form2_after_2014.csv")
+dat3 <- read_csv("Data/forest_clearance/for_clear_leaseRenew_after_2014.csv")
+dat4 <- read_csv("Data/forest_clearance/for_clear_miningProspect_after_2014.csv")
 
 # Subset necessary columns
 dat1 <- dat1[,c(2,6,7,9,10,11)]
@@ -113,19 +113,34 @@ cat_area <- appro_post_2014 %>% group_by(category) %>%
   summarise(Total_area = sum(area_applied))
 
 # Create a plot
-cat_plot <- ggplot(cat_area, aes(x = category , y = Total_area, fill= category)) +   
-  geom_bar(stat="identity",color="black", size=0.08,position=position_dodge()) +
-  geom_text(aes(label=round(Total_area)), position=position_dodge(width=1),size=3, vjust=-0.5)+ theme_minimal() +
-  labs(x="category", y="Total Area (in hectares)") +
-  theme(axis.text.x = element_text(angle=45, hjust=1),
+cat_plot <-
+ggplot(cat_area %>% 
+         filter(Total_area > 10), 
+       aes(x = category , y = Total_area, 
+           fill= category)) +   
+  geom_bar(stat = "identity",
+           color = "black", 
+           size = 0.08,
+           position = position_dodge()) +
+  geom_text(aes(label = scales::comma(round(Total_area))), 
+            position = position_dodge(width=1),
+            size = 3, vjust = -0.5)+ 
+  theme_minimal(base_family = "TT Arial") +
+  scale_y_continuous(trans = "sqrt",
+                     labels = scales::comma,
+                     breaks = c(0.25, 0.5, seq(1,12, 3)) * 1e5) +
+  scale_x_discrete(guide = guide_axis(n.dodge = 4)) +
+  labs(x = "Category", 
+       y = "Total Area (in hectares)") +
+  theme(#axis.text.x = element_text(angle=, hjust=1),
         axis.ticks = element_blank(),
-        legend.position = "none") +
+        legend.position = "none",
+        panel.grid.minor =  element_blank()) +
   scico::scale_fill_scico_d(palette = "roma")
 
-cat_plot
-
-ggsave(cat_plot, filename = "C:\\Users\\Vijay\\Desktop\\envt_clearance\\cat_area_post2014.png",
-       width=12, height=7,dpi = 300)
+ggsave(cat_plot, 
+       filename = "Figures/cat_area_post2014.png",
+       width = 12, height = 7,dpi = 300)
 
 ```
 
@@ -160,22 +175,57 @@ ggsave(area_year_plot, filename = "C:\\Users\\Vijay\\Desktop\\envt_clearance\\ye
 Lets calculate the area of forests approved or pending to be approved as function of the state.  
 
 ```{r}
-state_area <- appro_post_2014 %>% group_by(state_name) %>%
-  summarise(Total_area = sum(area_applied))
+library(sf)
+
+# read in states
+states <- st_read("Data/spatial/ne_10m_admin_1_states_provinces.shp") %>% 
+  filter(admin == "India") %>% 
+  mutate(name = stringr::str_to_title(name)) %>% 
+  select(name) %>% 
+  mutate(name = case_when(
+    name == "Uttaranchal" ~ "Uttarakhand",
+    T ~ name))
+
+state_area <- appro_post_2014 %>% 
+  group_by(state_name) %>%
+  summarise(Total_area = sum(area_applied)) %>% 
+  ungroup() %>% 
+  mutate(state_name = stringr::str_to_title(state_name)) %>% 
+  mutate(state_name = case_when(
+    state_name == "Dadar & Nagar Haveli" ~ "Dadra & Nagar Haveli",
+    state_name == "Pondicherry" ~ "Puducherry",
+    T ~ state_name
+  ))
+
+# join spatial with area
+states <- states %>% 
+  left_join(state_area,
+            by = c("name" = "state_name")) %>% 
+  bind_cols(as_tibble(st_coordinates(st_centroid(states))))
 
 # Create a plot
-state_area_plot <- ggplot(state_area, aes(x = state_name , y = Total_area, fill=state_name)) +geom_bar(stat="identity",color="black", size=0.08,position=position_dodge()) +
-  geom_text(aes(label=round(Total_area)), position=position_dodge(width=1),size=3, vjust=-0.5)+
-  theme_minimal() +
-  labs(x="State", y="Total Area (in hectares)") +
-  theme(axis.text.x = element_text(angle=45, hjust=1),
-        axis.ticks = element_blank(),
-        legend.position = "none") +
-  scico::scale_fill_scico_d(palette = "roma")
+state_area_plot_post2014 <- ggplot(states) +
+  geom_sf(aes(fill = Total_area),
+          col = "black",
+          size = 0.1)+
+  geom_label_repel(aes(X, Y,
+                 label = scales::comma(as.integer(Total_area),
+                                       accuracy = 1)),
+             size = 2,
+             col = "black",
+             alpha = 0.8)+
+  scale_fill_scico(palette = "hawaii",
+                       direction = -1,
+                       trans = "sqrt",
+                   name = "Total area",
+                   breaks = c(0.1, 0.5, 1, 2, 4, 6) * 1e5,
+                   labels = scales::comma)+
+  
+  ggthemes::theme_map(base_family = "TT Arial") +
+  labs(title = "Total area cleared post-2014")
 
-state_area_plot
-
-ggsave(state_area_plot, filename = "C:\\Users\\Vijay\\Desktop\\envt_clearance\\state_area_post2014.png",
+ggsave(state_area_plot_post2014, 
+       filename = "Figures/state_area_post2014.png",
        width=12, height=7,dpi = 300)
 
 ```
