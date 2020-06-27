@@ -192,13 +192,14 @@ Lets calculate the area of forests approved or pending to be approved as functio
 ```{r}
 library(sf)
 # read in states
-states <- st_read("Data/spatial/ne_10m_admin_1_states_provinces.shp") %>% 
-  filter(admin == "India") %>% 
-  mutate(name = stringr::str_to_title(name)) %>% 
-  select(name) %>% 
-  mutate(name = case_when(
-    name == "Uttaranchal" ~ "Uttarakhand",
-    T ~ name))
+states <- st_read("Data/spatial/indian_states.gpkg") %>% 
+  mutate(state_name = as.character(state_name),
+         state_name = case_when(
+    state_name == "Jammu & Kashmir" ~ "Jammu And Kashmir",
+    state_name == "Arunanchal Pradesh" ~ "Arunachal Pradesh",
+    state_name == "Andaman & Nicobar Island" ~ "Andaman And Nicobar",
+    T ~ state_name
+  ))
 
 state_area <- appro_pre_2014 %>% 
   group_by(STATE_NAME) %>%
@@ -206,19 +207,21 @@ state_area <- appro_pre_2014 %>%
   ungroup() %>% 
   mutate(STATE_NAME = stringr::str_to_title(STATE_NAME)) %>% 
   mutate(STATE_NAME = case_when(
-    STATE_NAME == "Dadar & Nagar Haveli" ~ "Dadra & Nagar Haveli",
+    STATE_NAME == "Dadar & Nagar Haveli" ~ "Dadara & Nagar Haveli",
     STATE_NAME == "Pondicherry" ~ "Puducherry",
-    T ~ STATE_NAME
-  ))
+    STATE_NAME == "Orissa" ~ "Odisha",
+    STATE_NAME == "Delhi" ~ "NCT of Delhi",
+    T ~ STATE_NAME))
 
 # join spatial with area
 states <- states %>% 
   left_join(state_area,
-            by = c("name" = "STATE_NAME")) %>% 
+            by = c("state_name" = "STATE_NAME")) %>% 
   bind_cols(as_tibble(st_coordinates(st_centroid(states))))
 
 # Create a plot
-state_area_plot <- ggplot(states) +
+state_area_plot <-
+ggplot(states) +
   geom_sf(aes(fill = Total_area),
           col = "black",
           size = 0.1)+
@@ -230,6 +233,7 @@ state_area_plot <- ggplot(states) +
              alpha = 0.8)+
   scale_fill_scico(palette = "hawaii",
                        direction = -1,
+                   na.value = "black",
                        trans = "sqrt",
                    name = "Total area",
                    breaks = c(0.1, 0.5, 1, 2, 4, 6) * 1e5,
