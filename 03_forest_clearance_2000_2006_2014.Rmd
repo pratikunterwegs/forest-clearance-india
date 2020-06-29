@@ -240,7 +240,7 @@ area_year_plot <- ggplot(area_year, aes(x = DATE , y = Total_area)) +
 
 area_year_plot
 
-ggsave(area_year_plot, filename = "C:\\Users\\Vijay\\Desktop\\envt_clearance\\year_area_2000-2006.png",
+ggsave(area_year_plot, filename = "C:\\Users\\Vijay\\Desktop\\envt_clearance\\year_area_2006-2014.png",
        width=12, height=7,dpi = 300)
 
 ```
