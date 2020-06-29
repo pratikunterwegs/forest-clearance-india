@@ -41,7 +41,7 @@ For the sake of the analysis, we clubbed the above four categories into a single
 
 Prior to 2014, majority of forest land was approved towards encroachments and mining assicated projects
 
-![Area by Category pre 2014](https://github.com/vjjan91/WithdrawEIA2020/blob/master/Figures/pre2014_Area_vs_Category.png)
+![Area by Category pre 2014](https://github.com/vjjan91/Environmental-Clearances/blob/master/Figures/1975-2014_Area_vs_Category.png)
 
 Post 2014, majority of forest land was approved towards mining projects
 
@@ -49,7 +49,7 @@ Post 2014, majority of forest land was approved towards mining projects
 
 Prior to 2014, large chunks of forested land were approved for clearing in the years 1984, 1989, 1995 and 2006
 
-![Area by Year pre 2014](https://github.com/vjjan91/WithdrawEIA2020/blob/master/Figures/pre2014_Area_by_Year.png)
+![Area by Year pre 2014](https://github.com/vjjan91/Environmental-Clearances/blob/master/Figures/1975-2014_Area_by_Year.png)
 
 Post 2014, large chunks of forested land were approved for clearing in the year 2016. Notice, that **the amount of forest area approved for clearing in 2016 was more than double the amount of forest area approved for clearing in 2006 alone.** 
 
@@ -57,7 +57,7 @@ Post 2014, large chunks of forested land were approved for clearing in the year 
 
 Prior to 2014, a large area of forests were approved/pending to be cleared in Madhya Pradesh followed by Arunachal Pradesh - two states that possess an astounding level of biodiversity.
 
-![Area by State pre 2014](https://github.com/vjjan91/WithdrawEIA2020/blob/master/Figures/pre2014_Area_by_State.png)
+![Area by State pre 2014](https://github.com/vjjan91/Environmental-Clearances/blob/master/Figures/1975-2014_Area_by_State.png)
 
 A map of area of forests approved/pending to be cleared (prior to 2014)
 
