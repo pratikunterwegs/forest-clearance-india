@@ -1,4 +1,4 @@
-# WithdrawEIA2020
+# Environmental Clearances (Pre and Post 2014)
 This repository contains data, scripts and figures pertaining to environmental clearances (as obtained from the PARIVESH portal hosted by the MOEF&amp;CC)
 
 *The first two paragraphs have been copied from this handy resource, the [EIA Toolkit](https://coda.io/d/SAVE-EIA-TOOLKIT_dWwI4b9FeBu/EIA-Toolkit_suyhn#_luB6C). Please visit this link to know more about what you can do to help #WithdrawEIA2020*
