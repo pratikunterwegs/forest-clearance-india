@@ -1,96 +1,19 @@
-# Environmental Clearances 
-This repository contains data, scripts and figures pertaining to environmental clearances (as obtained from the PARIVESH portal hosted by the MOEF&amp;CC)
+# Calling for better environmental clearance data in India
 
-## So what's this repository about?
+With the stated intention of standardizing and rendering transparent the grant of environmental clearances, in March 2020, the Ministry of Environment, Forests and Climate Change (MOEF&CC) of the Government of India, published a draft proposal of amendments to the Environmental Impact Assessment (EIA) Notification, titled [Draft EIA 2020](1. Draft EIA notification - http://environmentclearance.nic.in/writereaddata/Draft_EIA_2020.pdf). Since the EIA process is crucial to balance environmental imperatives with economic development, environmentalists nationwide have voiced concerns with respect to the Draft EIA 2020 citing considerable [dilution of existing EIA regulations](https://science.thewire.in/environment/eia-2020-environmental-degradation-draft/). 
 
-We obtained and analyzed the raw data on clearances from [PARIVESH](http://parivesh.nic.in/), a portal hosted by the MOEF&CC. A summary of the analysis follows. However, all data, figures and scripts emerging from the exploratory data analysis can be obtained from the respective folders.
+The EIA rules were initially promulgated in 1994 (citation), and amended by ministerial notification in 2006 (citation). Using MOEF&CC Forest Clearance data (citation), 1994 – present as an example, we find that projects applied for significantly more forest area to be cleared when or shortly after new EIA rules were adopted, with an average 3,587 sq.km. proposed for clearance in 1995 and 2006, nearly four times as much as in other years (mean: 723 sq.km., quasipoisson Generalised Linear Model _t_ = 8.534, _p_ < 0.001). Further, applications in these years were disproportionately more successful than in other years (Y% more successful). Lack of easy access to basic information such as the time between project application and decision prevents us from disentangling potential factors underlying observed jumps in forest clearance applications.
 
-## Data on Environmental Clearances
+Fearing inexplicable forest clearances commensurate with 1995 and 2006 on the adoption of Draft EIA 2020, we urge scientists and concerned parties in India to demand that MOEF&CC data be more easily accessible for independent analysis, and remind scientists worldwide that public scrutiny is essential for transparent governance.
 
-Environmental clearance data is organized under three sub-headings on the PARIVESH portal, hosted by the MOEF&CC. These include: Environmental, Forests and Wildlife. The data for Forests and Wildlife are quantifiable, while the data for 'Environmental clearances' does not have any quantifiable information associated with it. In other words, these proposals lack any information on the area of forests stated to be cleared. At present, data for forests are available as an excel file on the portal (albeit, after much digging and searching). Data for Wildlife clearances was not available as an excel file. 
+Authors: Vijay Ramesh<sup>1*</sup>, Pratik Gupte<sup>2</sup>, Sarthak J Shetty<sup>3</sup>, Mridula Mary Paul<sup>4</sup>, Sahas Barve<sup>5</sup>
 
-All analysis was performed through the R programming environment. Please feel free to edit and use the code as you please. The data used for this purpose is available through the 'Data' folder. 
+<sup>1*</sup>Department of Ecology, Evolution and Environmental Biology, Columbia University, New York, NY 10027
 
-### How did we categorize and analyze the data?
+<sup>2</sup>2Groningen Institute for Evolutionary Life Sciences, University of Groningen, Groningen 9747 AG, The Netherlands
 
-In 1994, the Union Ministry of Environment and Forests (MEF), Government of India, under the Environmental (Protection) Act 1986, promulgated an EIA notification making Environmental Clearance (EC) mandatory for expansion or modernisation of any activity or for setting up new projects listed in Schedule 1 of the notification. A decade later, a new EIA legislation was passed in 2006. However, unlike the EIA Notification of 1994, the new legislation has put the onus of clearing projects on the state government depending on the size/capacity of the project. Click [here](https://www.cseindia.org/understanding-eia-383#:~:text=On%2027%20January%201994%2C%20the,listed%20in%20Schedule%201%20of)for more details. 
+<sup>4</sup>Ashoka Trust for Research in Ecology and the Environment, Jakkur Post, Bengaluru 560064, India
 
-Based on the above information, we reran the analyses by binning clearances across three time periods: 2000 to 2006; 2007 to 2014 and 2014 to Present.
+---
 
-### Forest Clearances
-
-The data on forest clearances has been stored in 5 separate excel files:
-
-1. All data prior to 2014
-2. Data post 2014 is subdivided by the MOEF&CC into:  
-    a) Allocation of fresh forest land (Form-A)	   
-    b) Application Under Section 2(iii)	     
-    c) Renewal of lease (Form-B)         	  
-    d) Prospecting of Minerals (Form-C)    
-
-For the sake of the analysis, we clubbed the above four categories into a single category on clearances post 2014. Secondly, the analysis only includes area in hectares across those proposals that have been categorized as currently approved / pending to be approved (*See code for further details*).
-
-**Between 2000 and 2006, 5076 proposals were categorized as approved / under one of the pending categories. During the same period, 1213 proposals were rejected. 
-Rejection Rate: 19.3%**
-
-**Between 2007 and 2014, 9829 proposals were categorized as approved / under one of the pending categories. During the same period, 1161 proposals were rejected. 
-Rejection rate: 10.5%**
-
-**Between 2014 and 2020, 17037 proposals were categorized as approved / under one of the pending categories. During the same period, 120 proposals were rejected. 
-Rejection rate: 0.7%!**
-
-If we look at the above information in terms of area:
-
-**2000 to 2006: Area stated to be cleared / potentially cleared - 6,29,638 hectares**
-**2000 to 2006: Area saved - 2,54,555.6 hectares**
-
-**2007 to 2014: Area stated to be cleared / potentially cleared - 4,51,676 hectares**
-**2007 to 2014: Area saved - 41,556.63 hectares**
-
-**2014 to Present: Area stated to be cleared / potentially cleared - 14,82,247 hectares**
-**2014 to Present: Area saved - 13,077.03 hectares**
-
-Between 2000 and 2006, Majority of area stated to be cleared was towards mining projects 
-
-![Area by Category 2000-2006](https://github.com/vjjan91/Environmental-Clearances/blob/master/Figures/cat_area_2000-2006.png)
-
-A similar trend towards mining projects was seen between 2007 and 2014.
-
-![Area by Category 2007-2014](https://github.com/vjjan91/Environmental-Clearances/blob/master/Figures/cat_area_2007-2014.png)
-
-When compared to the previous time period, area under mining has ** increased six-fold** between 2014 to 2020.
-
-![Area by Category post 2014](https://github.com/vjjan91/WithdrawEIA2020/blob/master/Figures/post2014_Area_vs_Category.png)
-
-2006 is an outlier year that has seen large chunks of forested land approved for clearing
-
-![Area by Year 2000-2006](https://github.com/vjjan91/Environmental-Clearances/blob/master/Figures/year_area_2000-2006.png)
-
-![Area by Year 2007-2014](https://github.com/vjjan91/Environmental-Clearances/blob/master/Figures/year_area_2007-2014.png)
-
-Post 2014, large chunks of forested land were approved for clearing in the year 2016. Notice, that **the amount of forest area approved for clearing in 2016 was more than double the amount of forest area approved for clearing in 2006 alone.** 
-
-![Area by Year post 2014](https://github.com/vjjan91/WithdrawEIA2020/blob/master/Figures/post2014_Area_by_Year.png)
-
-Between 2000 and 2006, a large area of forests were approved/pending to be cleared in Madhya Pradesh followed by Arunachal Pradesh - two states that possess an astounding level of biodiversity.
-
-![Area by State 2000 2006](https://github.com/vjjan91/Environmental-Clearances/blob/master/Figures/state_area_2000-2006.png)
-
-A similar trend was seen between 2007 and 2014 for the state of Arunachal Pradesh
-
-![Area by State 2007 2014](https://github.com/vjjan91/Environmental-Clearances/blob/master/Figures/state_area_2007-2014.png)
-
-Post 2014, Andhra Pradesh and Telangana are stated to lose the most chunks of forest land. 
-
-![Area by State post 2014](https://github.com/vjjan91/WithdrawEIA2020/blob/master/Figures/post2014_Area_by_State.png)
-
-A map of area of forests approved/pending to be cleared (post 2014)
-
-![Area by State post 2014 map](https://github.com/vjjan91/WithdrawEIA2020/blob/master/Figures/state_area_post2014.png)
-
-**The analysis suggests that there has been a significant increase in the rate of environmental clearances for the forest category alone since 2014. Further, the rate of rejection for proposals since 2014 is less than 1%.**
-
-*For further analysis on area lost by category by state across two time periods, please visit the figures folder*
-
-
-
+[Code and results for this letter may be found by clicking on this link]().
