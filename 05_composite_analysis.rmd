@@ -4,25 +4,24 @@ editor_options:
   chunk_output_type: console
 ---
 
-# Composite analysis of forest clearances
+# An analysis of forest clearances
 
 ## Load data
+
+Data is accessed from the [PARIVESH](parivesh.nic.in) portal.
 
 ```{r}
 # Load required libraries
 library(tidyverse)
-library(readxl)
-library(sf)
 library(rlang)
 library(lubridate)
 library(scico)
-library(ggrepel)
 ```
 
 ### Pre-2014 data 
 
 ```{r}
-## 1. Let's read in the data prior to 2014
+## read in the data prior to 2014
 pre_2014 <- read_csv("Data/forest_clearance/for_clear_before_2014.csv")
 
 # rename columns
@@ -62,22 +61,9 @@ forest_data$category <- str_to_lower(forest_data$category)
 
 ## Basic analyses
 
-### What is the status of applications?
+### Getting the status of applications
 
 ```{r}
-# what is the most common status
-count(forest_data, proposal_status) %>% arrange(-n)
-
-# what are the most common categories weighted by area
-count(forest_data, category, wt = area_applied) %>% 
-  arrange(-n)
-
-# what are the top categories
-top_categories <- count(forest_data, category, wt = area_applied) %>%
-  arrange(-n) %>% 
-  .$category %>% head(5)
-
-
 # get broader categories
 forest_data <- forest_data %>% 
   mutate(status = case_when(
@@ -111,37 +97,11 @@ forest_data <- forest_data %>%
                                        "pending",
                                        "unsuccessful",
                                        "other"))
+```
 
-# what is the area applied for in general
-forest_data %>% 
-  # filter(status != "unsuccessful") %>% 
-count(category, status,
-      period,
-      wt = area_applied) %>% 
-  filter(category %in% top_categories) %>% 
-  
-  group_by(category) %>% 
-  mutate(total_area = sum(n)) %>% 
-  
-  arrange(category, desc(status)) %>% 
-  
-  ggplot() +
-  geom_col(aes(x = reorder(category, total_area), 
-               y = n,
-               fill = status,
-               group = category),
-           position = "stack")+
-  scale_x_discrete(guide = guide_axis(n.dodge = 2),
-                   label = str_to_title)+
-  scale_y_continuous(labels = scales::comma) +
-  scale_fill_scico_d(palette = "batlow") +
-  facet_grid(~period) +
-  labs(x = "Project Category",
-       y = "Forest area cleared (hectares)")
+### Area applied for over years
 
-ggsave("Figures/fig_area_by_category.png")
-
-
+```
 forest_data %>% 
   ggplot() +
   stat_count(aes(x = year, fill = status,
@@ -171,7 +131,7 @@ data_rule_change <- forest_data %>%
   group_by(year) %>% 
   summarise(total_area = sum(area_applied),
             proportion_approved = length(status[status == "successful"]) 
-            / length(status[status %in% c("successful", "unsuccessful")])) %>% 
+            / length(status)) %>% 
   mutate(event = if_else(year %in% c(1995, 2006),
                          "rule change", "other"))
 ```
