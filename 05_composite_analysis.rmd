@@ -39,19 +39,29 @@ pre_2014 <- mutate(pre_2014,
 
 ```{r}
 # get the same data for post 2014 period
-post_2014 <- read_csv("Data/forest_clearance/for_clearance_forestLand_after_2014.csv")
+post_2014 <- list.files("Data/forest_clearance/", 
+                        pattern = "after_2014",
+                        full.names = TRUE)
+post_2014 <- map(post_2014, read_csv)
+post_2014 <- map(post_2014, function(x) {
+  mutate_at(x, vars("user_id"), as.character)
+})
+post_2014 <- bind_rows(post_2014)
+
 post_2014 <- post_2014 %>% 
   `colnames<-`(str_replace_all(str_to_lower(colnames(.)),
                                " ", "_"))
 
 # get year
-post_2014 <- mutate(post_2014,
-                    year = year(dmy(date_from_ua_to_nodal)))
+post_2014$year <- post_2014$date_from_ua_to_nodal %>% dmy() %>% year
 ```
 
 ### Bind data
 
 ```{r}
+# subset
+post_2014 <- select(post_2014, any_of(colnames(pre_2014)))
+
 # bind
 forest_data <- bind_rows(pre_2014, post_2014)
 
@@ -97,11 +107,14 @@ forest_data <- forest_data %>%
                                        "pending",
                                        "unsuccessful",
                                        "other"))
+
+# remove duplicate user ids
+forest_data <- forest_data
 ```
 
 ### Area applied for over years
 
-```
+```{r}
 forest_data %>% 
   ggplot() +
   stat_count(aes(x = year, fill = status,
