@@ -44,8 +44,8 @@ For the sake of the analysis, we clubbed the above four categories into a single
 **Between 2000 and 2006, 5076 proposals were categorized as approved / under one of the pending categories. During the same period, 1213 proposals were rejected. 
 Rejection Rate: 19.3%**
 
-**Between 2006 and 2014, 10815 proposals were categorized as approved / under one of the pending categories. During the same period, 1381 proposals were rejected. 
-Rejection rate: 11.3%**
+**Between 2007 and 2014, 9829 proposals were categorized as approved / under one of the pending categories. During the same period, 1161 proposals were rejected. 
+Rejection rate: 10.5%**
 
 **Between 2014 and 2020, 17037 proposals were categorized as approved / under one of the pending categories. During the same period, 120 proposals were rejected. 
 Rejection rate: 0.7%!**
@@ -55,8 +55,8 @@ If we look at the above information in terms of area:
 **2000 to 2006: Area stated to be cleared / potentially cleared - 6,29,638 hectares**
 **2000 to 2006: Area saved - 2,54,555.6 hectares**
 
-**2006 to 2014: Area stated to be cleared / potentially cleared - 7,51,354.8 hectares**
-**2006 to 2014: Area saved - 45,302.78 hectares**
+**2007 to 2014: Area stated to be cleared / potentially cleared - 4,51,676 hectares**
+**2007 to 2014: Area saved - 41,556.63 hectares**
 
 **2014 to Present: Area stated to be cleared / potentially cleared - 14,82,247 hectares**
 **2014 to Present: Area saved - 13,077.03 hectares**
@@ -67,7 +67,7 @@ Between 2000 and 2006, Majority of area stated to be cleared was towards mining 
 
 A similar trend towards mining projects was seen between 2006 and 2014.
 
-![Area by Category 2006-2014](https://github.com/vjjan91/Environmental-Clearances/blob/master/Figures/cat_area_2006-2014.png)
+![Area by Category 2007-2014](https://github.com/vjjan91/Environmental-Clearances/blob/master/Figures/cat_area_2007-2014.png)
 
 When compared to the previous time period, area under mining has **tripled** between 2014 to 2020.
 
@@ -77,7 +77,7 @@ When compared to the previous time period, area under mining has **tripled** bet
 
 ![Area by Year 2000-2006](https://github.com/vjjan91/Environmental-Clearances/blob/master/Figures/year_area_2000-2006.png)
 
-![Area by Year 2006-2014](https://github.com/vjjan91/Environmental-Clearances/blob/master/Figures/year_area_2006-2014.png)
+![Area by Year 2007-2014](https://github.com/vjjan91/Environmental-Clearances/blob/master/Figures/year_area_2007-2014.png)
 
 Post 2014, large chunks of forested land were approved for clearing in the year 2016. Notice, that **the amount of forest area approved for clearing in 2016 was more than double the amount of forest area approved for clearing in 2006 alone.** 
 
@@ -87,9 +87,9 @@ Between 2000 and 2006, a large area of forests were approved/pending to be clear
 
 ![Area by State 2000 2006](https://github.com/vjjan91/Environmental-Clearances/blob/master/Figures/state_area_2000-2006.png)
 
-A similar trend was seen between 2006 and 2014 for the state of Arunachal Pradesh
+A similar trend was seen between 2007 and 2014 for the state of Arunachal Pradesh
 
-![Area by State 2006 2014](https://github.com/vjjan91/Environmental-Clearances/blob/master/Figures/state_area_2006-2014.png)
+![Area by State 2007 2014](https://github.com/vjjan91/Environmental-Clearances/blob/master/Figures/state_area_2007-2014.png)
 
 Post 2014, Andhra Pradesh and Telangana are stated to lose the most chunks of forest land. 
 
