@@ -54,7 +54,7 @@ Between 2000 and 2006, Majority of area stated to be cleared was towards mining 
 
 ![Area by Category 2000-2006](https://github.com/vjjan91/Environmental-Clearances/blob/master/Figures/cat_area_2000-2006.png)
 
-A similar trend towards mining projects was seen between 2006 and 2014.
+A similar trend towards mining projects was seen between 2007 and 2014.
 
 ![Area by Category 2007-2014](https://github.com/vjjan91/Environmental-Clearances/blob/master/Figures/cat_area_2007-2014.png)
 
