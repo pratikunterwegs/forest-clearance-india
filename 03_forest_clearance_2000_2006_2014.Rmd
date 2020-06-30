@@ -81,7 +81,7 @@ Subsetting the data
 dat_2000_2006 <- pre_2014 %>% filter(DATE>="2000") %>%
   filter(DATE<="2006")
 
-dat_2006_2014 <- pre_2014 %>% filter(DATE>="2006") %>%
+dat_2007_2014 <- pre_2014 %>% filter(DATE>="2007") %>%
   filter(DATE<="2014")
 
 ```
@@ -91,8 +91,8 @@ Summary of number of grants approved and rejected across these time periods
 Between 2000 and 2006, 5076 proposals were categorized as approved / under one of the pending categories. During the same period, 1213 proposals were rejected. 
 Rejection Rate: 19.3%
 
-Between 2006 and 2014, 10815 proposals were categorized as approved / under one of the pending categories. During the same period, 1381 proposals were rejected. 
-Rejection rate: 11.3%
+Between 2007 and 2014, 9829 proposals were categorized as approved / under one of the pending categories. During the same period, 1161 proposals were rejected. 
+Rejection rate: 10.5%
 
 Between 2014 and 2020, 17037 proposals were categorized as approved / under one of the pending categories. During the same period, 120 proposals were rejected. 
 Rejection rate: 0.7%!
@@ -101,13 +101,13 @@ Rejection rate: 0.7%!
 ```{r}
 
 # Replace dat_2006_2014 with dat_2000_2006 for the other time period.
-n_reject <- dat_2006_2014 %>% select(PROPOSAL_STATUS,AREA_APPLIED) %>%
+n_reject <- dat_2007_2014 %>% select(PROPOSAL_STATUS,AREA_APPLIED) %>%
   group_by(PROPOSAL_STATUS, AREA_APPLIED) %>%
   filter(PROPOSAL_STATUS=="REJECTED" | PROPOSAL_STATUS=="CLOSED" |
          PROPOSAL_STATUS=="RETURNED" | PROPOSAL_STATUS=="REVOKED" |
            PROPOSAL_STATUS=="WITHDRAWN") %>% summarise() 
 
-n_appro <- dat_2006_2014 %>% select(PROPOSAL_STATUS,AREA_APPLIED) %>%
+n_appro <- dat_2007_2014 %>% select(PROPOSAL_STATUS,AREA_APPLIED) %>%
   group_by(PROPOSAL_STATUS, AREA_APPLIED) %>% summarise()
 
 # For post 2014:
@@ -130,10 +130,10 @@ n_appro_2014
 Forest area in hectares stated to be cleared / categorized as pending approval
 
 2000 to 2006: Area stated to be cleared / potentially cleared - 6,29,638 hectares
-2000 to 2006: Area saved - 254555.6 hectares
+2000 to 2006: Area saved - 2,54,555.6 hectares
 
-2006 to 2014: Area stated to be cleared / potentially cleared - 7,51,354.8 hectares
-2006 to 2014: Area saved - 45302.78 hectares
+2007 to 2014: Area stated to be cleared / potentially cleared - 4,51,676 hectares
+2007 to 2014: Area saved - 41,556.63 hectares
 
 2014 to Present: Area stated to be cleared / potentially cleared - 14,82,247 hectares
 2014 to Present: Area saved - 13077.03 hectares
@@ -144,7 +144,7 @@ Forest area in hectares stated to be cleared / categorized as pending approval
 # Pre 2014 data
 
 # Area saved / rejected proposals
-n_reject <- dat_2006_2014 %>% select(PROPOSAL_STATUS,AREA_APPLIED) %>%
+n_reject <- dat_2007_2014 %>% select(PROPOSAL_STATUS,AREA_APPLIED) %>%
   group_by(PROPOSAL_STATUS, AREA_APPLIED) %>%
   filter(PROPOSAL_STATUS=="REJECTED" | PROPOSAL_STATUS=="CLOSED" |
          PROPOSAL_STATUS=="RETURNED" | PROPOSAL_STATUS=="REVOKED" |
@@ -154,7 +154,7 @@ n_reject <- dat_2006_2014 %>% select(PROPOSAL_STATUS,AREA_APPLIED) %>%
 n_reject # 8,48,475 hectares of forests were not cleared prior to 2014
 
 # Area cleared / approved proposals and/or pending
-n_appro <- dat_2006_2014  %>% select(PROPOSAL_STATUS,AREA_APPLIED) %>%
+n_appro <- dat_2007_2014  %>% select(PROPOSAL_STATUS,AREA_APPLIED) %>%
   group_by(PROPOSAL_STATUS, AREA_APPLIED) %>% summarise() %>%   tally(AREA_APPLIED) %>% tally(n) - n_reject
 
 n_appro # 21,63,215 hectares of forests were cleared or approved to be cleared / pending
@@ -190,7 +190,7 @@ appro_2000_2006 <- dat_2000_2006 %>%
          PROPOSAL_STATUS=="RETURNED" | PROPOSAL_STATUS=="REVOKED" |
            PROPOSAL_STATUS=="WITHDRAWN"))
 
-appro_2006_2014<- dat_2006_2014 %>%
+appro_2007_2014<- dat_2007_2014 %>%
   filter(!(PROPOSAL_STATUS=="REJECTED" | PROPOSAL_STATUS=="CLOSED" |
          PROPOSAL_STATUS=="RETURNED" | PROPOSAL_STATUS=="REVOKED" |
            PROPOSAL_STATUS=="WITHDRAWN"))
@@ -200,11 +200,11 @@ appro_2006_2014<- dat_2006_2014 %>%
 
 ```{r}
 # Data by category and area
-cat_area_2006_2014 <- appro_2006_2014 %>% group_by(CATEGORY) %>%
+cat_area_2007_2014 <- appro_2007_2014 %>% group_by(CATEGORY) %>%
   summarise(Total_area = sum(AREA_APPLIED))
 
 # Create a plot
-cat_plot <- ggplot(cat_area_2006_2014, aes(x = CATEGORY , y = Total_area, fill= CATEGORY)) +   geom_bar(stat="identity",color="black", size=0.08,position=position_dodge()) +
+cat_plot <- ggplot(cat_area_2007_2014, aes(x = CATEGORY , y = Total_area, fill= CATEGORY)) +   geom_bar(stat="identity",color="black", size=0.08,position=position_dodge()) +
   geom_text(aes(label=round(Total_area)), position=position_dodge(width=1),size=3, vjust=-0.5)+ theme_minimal() +
   labs(x="Category", y="Total Area (in hectares)") +
   theme(axis.text.x = element_text(angle=45, hjust=1),
@@ -214,7 +214,7 @@ cat_plot <- ggplot(cat_area_2006_2014, aes(x = CATEGORY , y = Total_area, fill= 
 
 cat_plot
 
-ggsave(cat_plot, filename = "C:\\Users\\Vijay\\Desktop\\envt_clearance\\cat_area_2006-2014.png",
+ggsave(cat_plot, filename = "C:\\Users\\Vijay\\Desktop\\envt_clearance\\cat_area_2007-2014.png",
        width=12, height=7,dpi = 300)
 
 ```
@@ -224,9 +224,9 @@ Year and area
 ```{r}
 # Data by year and area
 appro_2000_2006$DATE <- as.character(appro_2000_2006$DATE)
-appro_2006_2014$DATE <- as.character(appro_2006_2014$DATE)
+appro_2007_2014$DATE <- as.character(appro_2007_2014$DATE)
 
-area_year <- appro_2006_2014 %>% group_by(DATE) %>%
+area_year <- appro_2007_2014 %>% group_by(DATE) %>%
   summarise(Total_area = sum(AREA_APPLIED))
 
 # Create a plot
@@ -240,14 +240,14 @@ area_year_plot <- ggplot(area_year, aes(x = DATE , y = Total_area)) +
 
 area_year_plot
 
-ggsave(area_year_plot, filename = "C:\\Users\\Vijay\\Desktop\\envt_clearance\\year_area_2006-2014.png",
+ggsave(area_year_plot, filename = "C:\\Users\\Vijay\\Desktop\\envt_clearance\\year_area_2007-2014.png",
        width=12, height=7,dpi = 300)
 
 ```
 
 Area and state
 ```{r}
-state_area <- appro_2006_2014 %>% group_by(STATE_NAME) %>%
+state_area <- appro_2007_2014 %>% group_by(STATE_NAME) %>%
   summarise(Total_area = sum(AREA_APPLIED))
 
 # Create a plot
@@ -262,7 +262,7 @@ state_area_plot <- ggplot(state_area, aes(x = STATE_NAME , y = Total_area, fill=
 
 state_area_plot
 
-ggsave(state_area_plot, filename = "C:\\Users\\Vijay\\Desktop\\envt_clearance\\state_area_2006-2014.png",
+ggsave(state_area_plot, filename = "C:\\Users\\Vijay\\Desktop\\envt_clearance\\state_area_2007-2014.png",
        width=12, height=7,dpi = 300)
 ```
 
