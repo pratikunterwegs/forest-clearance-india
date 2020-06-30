@@ -7,23 +7,24 @@ editor_options:
   chunk_output_type: console
 ---
 
+# Forest clearance applications pre-2014
+
 There are three types of clearance data on the PARIVESH portal, hosted by the MOEF&CC. These include: Environmental, Forests and Wildlife. The data for Forests and Wildlife are quantifiable, although the data for Wildlife was not available as an excel file and this information need to be obtained from the website. 
 
 All analysis being performed is through the R programming environment. Please feel free to edit and use this code as you please. The data used for this purpose is available through the 'Data' folder. 
 
+## Load data
+
 ```{r}
 # Load required libraries
-library(dplyr)
-library(ggplot2)
-library(RColorBrewer)
+library(tidyverse)
 library(readxl)
-library(stringr)
 library(sf)
+library(rlang)
 library(lubridate)
 library(scico)
 library(ggrepel)
 ```
-
 
 First, we will carry out some exploratory data analysis using the Forest clearance data. The data available has been stored in 5 separate excel files:
 
@@ -34,28 +35,86 @@ First, we will carry out some exploratory data analysis using the Forest clearan
     c) Renewal of lease (Form-B)	
     d) Prospecting of Minerals (Form-C)
 
-
-Let's first analyze the data prior to 2014
-
 ```{r}
 
 ## 1. Let's read in the data prior to 2014
-pre_2014 <- read.csv("Data/forest_clearance/for_clear_before_2014.csv",
-                     stringsAsFactors = F)
-head(pre_2014) # Take a look at the first 6 records
-names(pre_2014)
+pre_2014 <- read_csv("Data/forest_clearance/for_clear_before_2014.csv")
 
-# Shall subset certain categories
-pre_2014 <- pre_2014[,c(4,5,7,8,9,10)]
+# rename columns
+pre_2014 <- pre_2014 %>% 
+  `colnames<-`(str_replace_all(str_to_lower(colnames(.)),
+                               " ", "_"))
 
-# We have 6 categories: Proposal Name, Category the proposal falls under, Area applied for, Date (around which it was approved?), State Name and Proposal Status
-
-# Convert the date category from a factor to date
-names(pre_2014)[4] <- "DATE"
-pre_2014$DATE <- year(dmy(pre_2014$DATE)) # Keeping only years for now
-
+# get year of applications
+pre_2014 <- mutate(pre_2014,
+                   year = year(dmy(date_from_ua_to_nodal))) %>% 
+  filter(year >= 2000) %>% 
+  mutate(period = if_else(year < 2006, "2000 - 2006", "2006 - 2014"))
 ```
 
+## Basic analyses
+
+### What is the status of applications?
+
+```{r}
+# what is the most common status
+count(pre_2014, proposal_status) %>% arrange(-n)
+
+# what are the most common categories weighted by area
+count(pre_2014, category, wt = area_applied) %>% 
+  arrange(-n)
+
+# what are the top categories
+top_categories <- count(pre_2014, category, wt = area_applied) %>%
+  arrange(-n) %>% 
+  .$category %>% head(5)
+# what is the area applied for in general
+pre_2014 %>% 
+  # filter(status != "unsuccessful") %>% 
+count(category, status,
+      period,
+      wt = area_applied) %>% 
+  filter(category %in% top_categories) %>% 
+  
+  group_by(category) %>% 
+  mutate(total_area = sum(n)) %>% 
+  
+  ggplot() +
+  geom_col(aes(x = reorder(category, total_area), 
+               y = n,
+               fill = status,
+               group = category),
+           position = "stack")+
+  scale_x_discrete(guide = guide_axis(n.dodge = 2),
+                   label = str_to_title)+
+  scale_y_continuous(labels = scales::comma) +
+  scale_fill_scico_d(palette = "batlow") +
+  facet_grid(~period) +
+  labs(x = "Project Category",
+       y = "Forest area cleared (hectares)")
+
+ggsave("Figures/fig_area_by_category.png")
+
+# get broader categories
+pre_2014 <- pre_2014 %>% 
+  mutate(status = case_when(
+    str_detect(proposal_status, "PENDING|RETURNED|SECRETARY|COMPLIANCE") ~
+      "pending",
+    str_detect(proposal_status, "APPROVED|IN-PRINCIPLE") ~
+      "successful",
+    str_detect(proposal_status, "REJECTED|REVOKED|WITHDRAWN|CLOSED") ~
+      "unsuccessful",
+    T ~ "other"
+  ))
+
+# reorder factors
+pre_2014 <- pre_2014 %>% 
+  mutate(status = forcats::fct_relevel(status,
+                                       "successful",
+                                       "unsuccessful",
+                                       "pending",
+                                       "other"))
+```
 
 A couple of analyses and plots for the forest clearance data:  
 

@@ -299,7 +299,6 @@ FP/TN/QRY/4794/2020,Tamil Nadu,Gravel Quarry of Thiru.K.Karnan,Quarrying,KARNAN 
 FP/RJ/Others/4795/2020,Rajasthan,Commercial cum Residential Scheme “Platina”,Others,SILVER WINGS LIFE SPACES,0,Draft,11 Jan 2020
 FP/GJ/MIN/4295/2019,Gujarat,Mining Lease Project,Mining,SHRI GOPALSINH HIMATSINH CHAUHAN,0,CF,10 Jan 2020
 FP/RJ/MIN/3840/2019,Rajasthan,Smt. Pooja Chauhan Dhiloriya Masonary Stone Mining Project  ML  No.-  12/2015,Mining,DHILORIYA MASONARY STONE MINING PROJECT,0,DFO,10 Jan 2020
-FP/RJ/MIN/3813/2019,Rajasthan,Shri Babu Lal Kothari, Dhiloriya Masonary Stone Mine Project (M.L. NO. 09/2015),Mining,NA,0,DFO
 FP/OR/QRY/4791/2020,Orissa,Stone Quarry at Kantipal,Quarrying,MACONS INFRATECH PVT. LTD.,0,Under Examination,10 Jan 2020
 FP/GJ/WATER/42562/2019,Gujarat,Diversion of 1.1260 ha. of forest land for laying of drinking water supply  pipeline from Anandpur weir to Junagadh city for Water Supply Scheme under  Junagadh Municipal Corporation. Dist. Junagadh,Drinking Water,MUNICIPAL CORPORATION JUNAGADH,0,PENDING WITH-SG,10 Jan 2020
 FP/TN/QRY/4785/2020,Tamil Nadu,Rough Stone Quarry,Quarrying,RAJU ROUGH STONE,0,Draft,09 Jan 2020
@@ -3112,7 +3111,6 @@ NA,Rajasthan,NA,Mining,NA,0,Under Examination,NA
 NA,Rajasthan,NA,Mining,NA,0,Under Examination,NA
 NA,Rajasthan,NA,Mining,NA,0,Under Examination,NA
 NA,Karnataka,NA,Industry,NA,0,Draft,NA
-NA,Rajasthan,NA,Road,NA,0.1758,Under Examination,NA
 NA,Rajasthan,NA,Others,NA,0.1758,Under Examination,NA
 NA,Karnataka,NA,Industry,NA,0,Pending With UA,NA
 NA,Jammu and Kashmir,NA,Transmission Line,NA,0.83,Draft,NA
@@ -3121,10 +3119,8 @@ NA,Madhya Pradesh,NA,Others,NA,0.405,Draft,NA
 NA,Maharashtra,NA,Others,NA,0.9863,Draft,NA
 NA,Uttar Pradesh,NA,Others,NA,0.846,DFO,NA
 NA,Jammu and Kashmir,NA,Canal,NA,5.84,Draft,NA
-NA,Jammu and Kashmir,NA,Transmission Line,NA,5.84,Draft,NA
 NA,Rajasthan,NA,Others,NA,6.884,Under Examination,NA
 NA,Maharashtra,NA,Pipeline,NA,0.4053,Under Examination,NA
-NA,Maharashtra,NA,Irrigation,NA,0.4053,Under Examination,NA
 NA,Kerala,NA,Mining,NA,0,Draft,NA
 NA,Rajasthan,NA,Mining,NA,0,DFO,NA
 NA,Rajasthan,NA,Mining,NA,0,DFO,NA
@@ -3138,8 +3134,6 @@ NA,Tamil Nadu,NA,Quarrying,NA,0,Draft,NA
 NA,Telangana,NA,Optical Fibre Cable,NA,2.6209,CF,NA
 NA,Gujarat,NA,Pipeline,NA,35.8,Pending With UA,NA
 NA,Tripura,NA,Pipeline,NA,0,Under Examination,NA
-NA,Tripura,NA,Industry,NA,0,Under Examination,NA
-NA,Maharashtra,NA,Drinking Water,NA,0.287,Under Examination,NA
 NA,Maharashtra,NA,Irrigation,NA,0.287,Under Examination,NA
 NA,Kerala,NA,Road,NA,6.18,CF,NA
 NA,Gujarat,NA,Mining,NA,0,Pending With UA,NA
@@ -3172,12 +3166,10 @@ NA,Tamil Nadu,NA,Mining,NA,0,Under Examination,NA
 NA,Rajasthan,NA,Mining,NA,0,Under Examination,NA
 NA,Rajasthan,NA,Mining,NA,0,Under Examination,NA
 NA,Rajasthan,NA,Mining,NA,0,Under Examination,NA
-NA,Rajasthan,NA,Road,NA,5.252,CF,NA
 NA,Rajasthan,NA,Road,NA,5.252,Pending With CF,NA
 NA,Madhya Pradesh,NA,Railway,NA,1.34,Disposed,NA
 NA,Rajasthan,NA,Mining,NA,0,Under Examination,NA
 NA,Gujarat,NA,Others,NA,0,Pending With UA,NA
-NA,Rajasthan,NA,Railway,NA,8.405,CF,NA
 NA,Rajasthan,NA,Railway,NA,8.405,Pending With CF,NA
 NA,Madhya Pradesh,NA,Road,NA,225,PENDING WITH-SG,NA
 NA,Gujarat,NA,Others,NA,0.2785,Disposed,NA
@@ -3216,11 +3208,9 @@ NA,Andhra Pradesh,NA,Irrigation,NA,686.82,PENDING WITH-SG,NA
 NA,Rajasthan,NA,Others,NA,0,Under Examination,NA
 NA,Gujarat,NA,Others,NA,0.01791,PENDING WITH-SG,NA
 NA,Maharashtra,NA,Road,NA,56,Under Examination,NA
-NA,Uttar Pradesh,NA,Road,NA,0.1054,Draft,NA
 NA,Uttar Pradesh,NA,Others,NA,0.1054,Draft,NA
 NA,Rajasthan,NA,Mining,NA,0,Draft,NA
 NA,Uttar Pradesh,NA,Road,NA,0.4215,Under Examination,NA
-NA,Uttar Pradesh,NA,Optical Fibre Cable,NA,0.4215,Under Examination,NA
 NA,Rajasthan,NA,Quarrying,NA,0,Draft,NA
 NA,Tamil Nadu,NA,Quarrying,NA,0,Under Examination,NA
 NA,Gujarat,NA,Drinking Water,NA,0.793,Disposed,NA
@@ -3278,7 +3268,6 @@ NA,Rajasthan,NA,Mining,NA,0,Draft,NA
 NA,Rajasthan,NA,Mining,NA,0,Draft,NA
 NA,Tamil Nadu,NA,Quarrying,NA,0,CF,NA
 NA,Jharkhand,NA,Village Electricity,NA,75.812,Draft,NA
-NA,Rajasthan,NA,Road,NA,2,CF,NA
 NA,Rajasthan,NA,Road,NA,2,Pending With CF,NA
 NA,Maharashtra,NA,Transmission Line,NA,2.3323,Under Examination,NA
 NA,Maharashtra,NA,Road,NA,0,Under Examination,NA
@@ -3377,7 +3366,6 @@ NA,Rajasthan,NA,Mining,NA,0,Draft,NA
 NA,Rajasthan,NA,Mining,NA,0,Under Examination,NA
 NA,Rajasthan,NA,Mining,NA,0,Draft,NA
 NA,Haryana,NA,Road,NA,0.0102,Under Examination,NA
-NA,Haryana,NA,Approach Access,NA,0.0102,Under Examination,NA
 NA,Rajasthan,NA,Mining,NA,0,Draft,NA
 NA,Rajasthan,NA,Mining,NA,0,Under Examination,NA
 NA,Rajasthan,NA,Mining,NA,0,Draft,NA
@@ -3432,7 +3420,6 @@ NA,Rajasthan,NA,Mining,NA,0,Draft,NA
 NA,Rajasthan,NA,Mining,NA,0,Under Examination,NA
 NA,Rajasthan,NA,Mining,NA,0,Draft,NA
 NA,Rajasthan,NA,Mining,NA,0,Draft,NA
-NA,Uttar Pradesh,NA,Road,NA,0.391267,PENDING WITH-SG,NA
 NA,Uttar Pradesh,NA,Others,NA,0.391267,PENDING WITH-SG,NA
 NA,Rajasthan,NA,Mining,NA,0,Draft,NA
 NA,Rajasthan,NA,Mining,NA,0,Draft,NA
@@ -3444,7 +3431,6 @@ NA,Rajasthan,NA,Mining,NA,0,Under Examination,NA
 NA,Rajasthan,NA,Mining,NA,0,Under Examination,NA
 NA,Rajasthan,NA,Mining,NA,0,Under Examination,NA
 NA,Rajasthan,NA,Mining,NA,0,Disposed,NA
-NA,Rajasthan,NA,Mining,NA,0,CF,NA
 NA,Rajasthan,NA,Mining,NA,0,Pending With CF,NA
 NA,Rajasthan,NA,Mining,NA,0,Draft,NA
 NA,Rajasthan,NA,Mining,NA,0,Disposed,NA
@@ -3485,14 +3471,11 @@ NA,Karnataka,NA,Irrigation,NA,0.8204,Draft,NA
 NA,Rajasthan,NA,Mining,NA,0,Draft,NA
 NA,Rajasthan,NA,Mining,NA,0,Draft,NA
 NA,Tamil Nadu,NA,Quarrying,NA,0,Draft,NA
-NA,Uttar Pradesh,NA,Road,NA,0.074582,Pending With UA,NA
 NA,Uttar Pradesh,NA,Others,NA,0.074582,Pending With UA,NA
 NA,Uttar Pradesh,NA,Others,NA,210,Draft,NA
 NA,Maharashtra,NA,Optical Fibre Cable,NA,3.46,Under Examination,NA
 NA,Telangana,NA,Rehabilitation,NA,112,Draft,NA
-NA,Rajasthan,NA,Mining,NA,0,CF,NA
 NA,Rajasthan,NA,Mining,NA,0,Pending With CF,NA
-NA,Rajasthan,NA,Mining,NA,0,CF,NA
 NA,Rajasthan,NA,Mining,NA,0,Pending With CF,NA
 NA,Tamil Nadu,NA,Mining,NA,0,CF,NA
 NA,Tamil Nadu,NA,Quarrying,NA,0,DFO,NA
@@ -3510,13 +3493,11 @@ NA,Rajasthan,NA,Road,NA,3.6878,Disposed,NA
 NA,Kerala,NA,Quarrying,NA,0,Under Examination,NA
 NA,West Bengal,NA,Others,NA,0.0144,Draft,NA
 NA,Rajasthan,NA,Others,NA,0.1059,CF,NA
-NA,Rajasthan,NA,Optical Fibre Cable,NA,0.1059,CF,NA
 NA,Tamil Nadu,NA,Quarrying,NA,0,Under Examination,NA
 NA,Rajasthan,NA,Others,NA,1,Draft,NA
 NA,Uttar Pradesh,NA,Road,NA,287.43,Pending With UA,NA
 NA,Orissa,NA,Road,NA,9.197,Disposed,NA
 NA,Maharashtra,NA,Road,NA,0,CF,NA
-NA,Rajasthan,NA,Others,NA,1.3737,CF,NA
 NA,Rajasthan,NA,Others,NA,1.3737,Pending With CF,NA
 NA,Uttarakhand,NA,Mining,NA,0,Under Examination,NA
 NA,Kerala,NA,Quarrying,NA,0,Under Examination,NA
@@ -3546,7 +3527,6 @@ NA,Rajasthan,NA,Mining,NA,0,Draft,NA
 NA,Maharashtra,NA,Road,NA,274,Under Examination,NA
 NA,Rajasthan,NA,Mining,NA,0,CF,NA
 NA,Rajasthan,NA,Mining,NA,0,Draft,NA
-NA,Uttar Pradesh,NA,Road,NA,0.177,Disposed,NA
 NA,Uttar Pradesh,NA,Others,NA,0.177,Disposed,NA
 NA,Rajasthan,NA,Mining,NA,0,Draft,NA
 NA,Rajasthan,NA,Mining,NA,0,Draft,NA
@@ -3584,7 +3564,6 @@ NA,Rajasthan,NA,Mining,NA,0,Draft,NA
 NA,Rajasthan,NA,Mining,NA,0,Draft,NA
 NA,Rajasthan,NA,Mining,NA,0,Draft,NA
 NA,Rajasthan,NA,Mining,NA,0,Draft,NA
-NA,Andhra Pradesh,NA,Road,NA,1.85,DFO,NA
 NA,Andhra Pradesh,NA,School,NA,1.85,DFO,NA
 NA,Rajasthan,NA,Mining,NA,0,Draft,NA
 NA,Rajasthan,NA,Mining,NA,0,Draft,NA
@@ -3622,7 +3601,6 @@ NA,Tamil Nadu,NA,Others,NA,0.3,Draft,NA
 NA,Jharkhand,NA,Others,NA,0,Draft,NA
 NA,Orissa,NA,Road,NA,1.61,CF,NA
 NA,Karnataka,NA,Industry,NA,0,Draft,NA
-NA,Uttar Pradesh,NA,Road,NA,0.1156,Pending With UA,NA
 NA,Uttar Pradesh,NA,Others,NA,0.1156,Pending With UA,NA
 NA,Tamil Nadu,NA,Quarrying,NA,0,Draft,NA
 NA,Tamil Nadu,NA,Quarrying,NA,0,Draft,NA
@@ -3640,13 +3618,11 @@ NA,Tamil Nadu,NA,Quarrying,NA,0,CF,NA
 NA,Madhya Pradesh,NA,Mining,NA,0,Under Examination,NA
 NA,Madhya Pradesh,NA,Mining,NA,0,Under Examination,NA
 NA,Uttarakhand,NA,Mining,NA,0,Draft,NA
-NA,Uttar Pradesh,NA,Road,NA,3.504849,PENDING WITH-SG,NA
 NA,Uttar Pradesh,NA,Others,NA,3.504849,PENDING WITH-SG,NA
 NA,Telangana,NA,Irrigation,NA,281.9302,Under Examination,NA
 NA,Rajasthan,NA,Industry,NA,0,Disposed,NA
 NA,Punjab,NA,Others,NA,0,Under Examination,NA
 NA,Manipur,NA,Road,NA,0,Disposed,NA
-NA,Rajasthan,NA,Mining,NA,0,CF,NA
 NA,Rajasthan,NA,Mining,NA,0,Pending With CF,NA
 NA,Andhra Pradesh,NA,Road,NA,16.95,Draft,NA
 NA,Assam,NA,Industry,NA,0,Under Examination,NA
@@ -3723,14 +3699,11 @@ NA,Bihar,NA,Mining,NA,0,Under Examination,NA
 NA,Bihar,NA,Mining,NA,0,Under Examination,NA
 NA,Bihar,NA,Mining,NA,0,Under Examination,NA
 NA,Bihar,NA,Mining,NA,0,Under Examination,NA
-NA,Rajasthan,NA,Others,NA,0.28305,CF,NA
 NA,Rajasthan,NA,Others,NA,0.28305,Pending With CF,NA
 NA,Karnataka,NA,Canal,NA,2.1035,Under Examination,NA
-NA,Karnataka,NA,Irrigation,NA,2.1035,Under Examination,NA
 NA,Rajasthan,NA,Others,NA,1.064,Pending With UA,NA
 NA,Orissa,NA,Drinking Water,NA,4.31,Disposed,NA
 NA,Tamil Nadu,NA,Quarrying,NA,0,Under Examination,NA
-NA,Uttar Pradesh,NA,Road,NA,0,Under Examination,NA
 NA,Uttar Pradesh,NA,Others,NA,0,Under Examination,NA
 NA,Manipur,NA,Road,NA,6.552,Disposed,NA
 NA,Rajasthan,NA,Mining,NA,0,Draft,NA
@@ -3766,7 +3739,6 @@ NA,Tamil Nadu,NA,Mining,NA,0,Draft,NA
 NA,Tamil Nadu,NA,Quarrying,NA,0,Under Examination,NA
 NA,Tamil Nadu,NA,Quarrying,NA,0,Draft,NA
 NA,Kerala,NA,Mining,NA,0,Under Examination,NA
-NA,Kerala,NA,Quarrying,NA,0,Under Examination,NA
 NA,Uttarakhand,NA,Others,NA,0,DFO,NA
 NA,Rajasthan,NA,Road,NA,3,Disposed,NA
 NA,Rajasthan,NA,Mining,NA,0,Draft,NA
@@ -3791,7 +3763,6 @@ NA,Madhya Pradesh,NA,Mining,NA,0,Under Examination,NA
 NA,Tamil Nadu,NA,Quarrying,NA,0,Under Examination,NA
 NA,Tamil Nadu,NA,Quarrying,NA,0,Under Examination,NA
 NA,Karnataka,NA,Others,NA,1.01,Draft,NA
-NA,Maharashtra,NA,Road,NA,0.0602,Under Examination,NA
 NA,Maharashtra,NA,Others,NA,0.0602,Draft,NA
 NA,Tamil Nadu,NA,Quarrying,NA,0,Under Examination,NA
 NA,Kerala,NA,Quarrying,NA,0,Under Examination,NA
@@ -3815,11 +3786,9 @@ NA,Telangana,NA,Drinking Water,NA,24.933,Disposed,NA
 NA,Andhra Pradesh,NA,Road,NA,21.343,Disposed,NA
 NA,Telangana,NA,Drinking Water,NA,7.762,Disposed,NA
 NA,Karnataka,NA,Canal,NA,2.9695,Under Examination,NA
-NA,Karnataka,NA,Irrigation,NA,2.9695,Under Examination,NA
 NA,Karnataka,NA,Road,NA,0.153,Under Examination,NA
 NA,Telangana,NA,Drinking Water,NA,22.258,Disposed,NA
 NA,Madhya Pradesh,NA,Railway,NA,0,Under Examination,NA
-NA,Rajasthan,NA,Road,NA,4.875,CF,NA
 NA,Rajasthan,NA,Road,NA,4.875,Pending With CF,NA
 NA,Telangana,NA,Drinking Water,NA,4.986,Disposed,NA
 NA,Telangana,NA,Drinking Water,NA,4.737,Disposed,NA
@@ -3894,7 +3863,6 @@ NA,Madhya Pradesh,NA,Mining,NA,0,Under Examination,NA
 NA,Madhya Pradesh,NA,Mining,NA,0,Under Examination,NA
 NA,Madhya Pradesh,NA,Mining,NA,0,Under Examination,NA
 NA,Kerala,NA,Quarrying,NA,0,Under Examination,NA
-NA,Madhya Pradesh,NA,Mining,NA,0,Under Examination,NA
 NA,Madhya Pradesh,NA,Industry,NA,0,Under Examination,NA
 NA,Madhya Pradesh,NA,Mining,NA,0,Under Examination,NA
 NA,Madhya Pradesh,NA,Mining,NA,0,Under Examination,NA
@@ -3933,7 +3901,6 @@ NA,Telangana,NA,Others,NA,0.35,Disposed,NA
 NA,Haryana,NA,Mining,NA,0,Under Examination,NA
 NA,Tamil Nadu,NA,Mining,NA,0,DFO,NA
 NA,Haryana,NA,Mining,NA,0,Under Examination,NA
-NA,Uttar Pradesh,NA,Road,NA,0,Under Examination,NA
 NA,Uttar Pradesh,NA,Others,NA,0,Under Examination,NA
 NA,Kerala,NA,Others,NA,0,Under Examination,NA
 NA,Andhra Pradesh,NA,Others,NA,0.3,Disposed,NA
@@ -3976,5 +3943,4 @@ NA,Madhya Pradesh,NA,Mining,NA,0,Under Examination,NA
 NA,Uttar Pradesh,NA,Others,NA,0,Draft,NA
 NA,Uttar Pradesh,NA,Industry,NA,0,Pending With UA,NA
 NA,Punjab,NA,Dispensary/Hospital,NA,0,Under Examination,NA
-NA,Telangana,NA,Road,NA,5.641,Draft,NA
 NA,Telangana,NA,Rehabilitation,NA,5.641,Draft,NA

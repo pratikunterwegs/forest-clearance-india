@@ -77,8 +77,10 @@ status <- good_data$`Proposal Status` %>%
   unique()
 
 # subset for numerics
-status <- str_subset(status, "\\d", negate = T)
-types <- str_subset(types, "\\d", negate = T)
+status <- str_subset(status, "\\d", negate = T) %>% 
+  str_flatten(collapse = "|")
+types <- str_subset(types, "\\d", negate = T) %>% 
+  str_flatten(collapse = "|")
 
 # make tibbles by rescuing data
 # wildlife_post_2014 <- 
@@ -91,8 +93,7 @@ fixed_bad_data_2 <- bad_data %>%
       unlist() %>% 
       last()
     x <- str_flatten(x, collapse = " ")
-    category <- str_match(x, types) %>% 
-      discard(is.na)
+    category <- str_match(x, types)
     status <- str_match(x, status) %>% 
       discard(is.na)
     
@@ -107,13 +108,9 @@ fixed_bad_data_2 <- bad_data %>%
   })
 
 # determine length after compacting
-fixed_bad_data_2 <- map(fixed_bad_data_2, compact) %>% 
-  keep(function(x) {
-    length(x) == 4
-  })
+fixed_bad_data_2 <- map(fixed_bad_data_2, compact)
 
 fixed_bad_data_2 <- bind_rows(fixed_bad_data_2)
-
 
 # set column names
 colnames(good_data) <- str_to_lower(colnames(good_data)) %>% 
@@ -127,8 +124,9 @@ good_data <- rename(good_data,
 good_data <- mutate(good_data,
                     area_applied = as.numeric(area_applied))
 
-# bind rows
-wildlife_post_2014 <- bind_rows(good_data, fixed_bad_data_2)
+# bind rows and remove NA
+wildlife_post_2014 <- bind_rows(good_data, fixed_bad_data_2) %>% 
+  drop_na(area_applied, proposal_status)
 ```
 
 ```{r}
