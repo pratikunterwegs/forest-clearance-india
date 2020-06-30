@@ -1,0 +1,220 @@
+---
+output: html_document
+editor_options: 
+  chunk_output_type: console
+---
+
+# Composite analysis of forest clearances
+
+## Load data
+
+```{r}
+# Load required libraries
+library(tidyverse)
+library(readxl)
+library(sf)
+library(rlang)
+library(lubridate)
+library(scico)
+library(ggrepel)
+```
+
+### Pre-2014 data 
+
+```{r}
+## 1. Let's read in the data prior to 2014
+pre_2014 <- read_csv("Data/forest_clearance/for_clear_before_2014.csv")
+
+# rename columns
+pre_2014 <- pre_2014 %>% 
+  `colnames<-`(str_replace_all(str_to_lower(colnames(.)),
+                               " ", "_"))
+
+# get year of applications
+pre_2014 <- mutate(pre_2014,
+                   year = year(dmy(date_from_ua_to_nodal))) %>% 
+  filter(year >= 1994)
+```
+
+### Post-2014 data
+
+```{r}
+# get the same data for post 2014 period
+post_2014 <- read_csv("Data/forest_clearance/for_clearance_forestLand_after_2014.csv")
+post_2014 <- post_2014 %>% 
+  `colnames<-`(str_replace_all(str_to_lower(colnames(.)),
+                               " ", "_"))
+
+# get year
+post_2014 <- mutate(post_2014,
+                    year = year(dmy(date_from_ua_to_nodal)))
+```
+
+### Bind data
+
+```{r}
+# bind
+forest_data <- bind_rows(pre_2014, post_2014)
+
+# correct case
+forest_data$category <- str_to_lower(forest_data$category)
+```
+
+## Basic analyses
+
+### What is the status of applications?
+
+```{r}
+# what is the most common status
+count(forest_data, proposal_status) %>% arrange(-n)
+
+# what are the most common categories weighted by area
+count(forest_data, category, wt = area_applied) %>% 
+  arrange(-n)
+
+# what are the top categories
+top_categories <- count(forest_data, category, wt = area_applied) %>%
+  arrange(-n) %>% 
+  .$category %>% head(5)
+
+
+# get broader categories
+forest_data <- forest_data %>% 
+  mutate(status = case_when(
+    str_detect(proposal_status, 
+               regex("(PENDING|RETURNED|SECRETARY|COMPLIANCE|Under examination|Draft)",
+                     ignore_case = TRUE)) ~
+      "pending",
+    str_detect(proposal_status, regex("APPROVED|IN-PRINCIPLE",
+                                      ignore_case = TRUE)) ~
+      "successful",
+    str_detect(proposal_status, regex("REJECTED|REVOKED|WITHDRAWN|CLOSED",
+                                      ignore_case = TRUE)) ~
+      "unsuccessful",
+    T ~ "other"
+  ))
+
+# get period
+forest_data <- forest_data %>% 
+  mutate(period = case_when(
+    year < 2006 ~ "2000 - 2005",
+    year >= 2006 & year < 2014 ~ "2006 - 2013",
+    year >= 2014 ~ "2014 - 2020",
+    T ~ NA_character_
+  )) %>% 
+  drop_na(period)
+
+# relevel factors
+forest_data <- forest_data %>% 
+  mutate(status = forcats::fct_relevel(status,
+                                       "successful",
+                                       "pending",
+                                       "unsuccessful",
+                                       "other"))
+
+# what is the area applied for in general
+forest_data %>% 
+  # filter(status != "unsuccessful") %>% 
+count(category, status,
+      period,
+      wt = area_applied) %>% 
+  filter(category %in% top_categories) %>% 
+  
+  group_by(category) %>% 
+  mutate(total_area = sum(n)) %>% 
+  
+  arrange(category, desc(status)) %>% 
+  
+  ggplot() +
+  geom_col(aes(x = reorder(category, total_area), 
+               y = n,
+               fill = status,
+               group = category),
+           position = "stack")+
+  scale_x_discrete(guide = guide_axis(n.dodge = 2),
+                   label = str_to_title)+
+  scale_y_continuous(labels = scales::comma) +
+  scale_fill_scico_d(palette = "batlow") +
+  facet_grid(~period) +
+  labs(x = "Project Category",
+       y = "Forest area cleared (hectares)")
+
+ggsave("Figures/fig_area_by_category.png")
+
+
+forest_data %>% 
+  ggplot() +
+  stat_count(aes(x = year, fill = status,
+               weight = area_applied),
+           size = 5,
+           geom = "bar", 
+           position = "stack") +
+  scale_x_continuous(guide = guide_axis(n.dodge = 2),
+                   label = str_to_title,
+                   breaks = 1994:2020)+
+  scale_y_continuous(labels = scales::comma) +
+  scale_fill_scico_d(palette = "batlow") +
+  facet_grid(~period, scales = "free_x") +
+  coord_cartesian(expand = F) +
+  labs(x = "Year",
+       y = "Forest area cleared (hectares)")
+
+ggsave("Figures/fig_area_by_year.png")
+```
+
+## Rule change years and other years
+
+### Prepare data for models
+
+```{r}
+data_rule_change <- forest_data %>%
+  group_by(year) %>% 
+  summarise(total_area = sum(area_applied),
+            proportion_approved = length(status[status == "successful"]) 
+            / length(status[status %in% c("successful", "unsuccessful")])) %>% 
+  mutate(event = if_else(year %in% c(1995, 2006),
+                         "rule change", "other"))
+```
+
+### Area in relation to rule change
+
+```{r}
+# fit a simple linear model for area
+# quasipoisson for overdispersion
+model_area <- glm(total_area ~ event, 
+   data = data_rule_change,
+   family = "quasipoisson")
+
+# print model summary
+summary(model_area)
+
+# print means and sd
+data_area_summary <- group_by(data_rule_change, event) %>% 
+  mutate(total_area_km = total_area * 0.01) %>% 
+  summarise_at(vars("total_area_km"), .funs = list(mean_area = mean, 
+                                                sd_area = sd))
+
+data_area_summary %>% 
+  knitr::kable()
+
+# print % difference relative to normal years
+abs(diff(data_area_summary$mean_area)) / min(data_area_summary$mean_area)
+```
+
+In years in which EIA rules were changed (1995 and 2006), applications are made to clear `r scales::percent(abs(diff(data_area_summary$mean_area)) / min(data_area_summary$mean_area))` more forest land than in other years.
+
+### Proportion of success in relation to rule change
+
+```{r}
+# add time to present as a linear predictor
+data_rule_change <- data_rule_change %>% 
+  mutate(time_to_present = 2020 - year)
+
+# fit a simple glm with binomial family
+model_approval <- glm(proportion_approved ~ event,
+                      data = data_rule_change,
+                      family = "binomial")
+
+# print summary
+summary(model_approval)
+```
