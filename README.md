@@ -8,11 +8,13 @@ Applying a 70% success rate observed in forest clearance applications between 19
 
 ![Forest area applied to be cleared 1994 -- 2020. Colours represent the outcomes of the applications.](https://github.com/pratikunterwegs/forest-clearance-india/blob/master/Figures/fig_area_by_year.png)
 
-Authors: Vijay Ramesh<sup>1*</sup>, Pratik Gupte<sup>2</sup>, Sarthak J Shetty<sup>3</sup>, Mridula Mary Paul<sup>4</sup>, Sahas Barve<sup>5</sup>
+**Vijay Ramesh**<sup>1*</sup>, **Pratik Gupte**<sup>2</sup>, **Mridula Mary Paul**<sup>3</sup>, **Sarthak J Shetty**<sup>4</sup>
 
 <sup>1*</sup>Department of Ecology, Evolution and Environmental Biology, Columbia University, New York, NY 10027
 
-<sup>2</sup>2Groningen Institute for Evolutionary Life Sciences, University of Groningen, Groningen 9747 AG, The Netherlands
+<sup>2</sup>Groningen Institute for Evolutionary Life Sciences, University of Groningen, Groningen 9747 AG, The Netherlands
+
+<sup>3</sup>Department of Aerospace Engineering, Indian Institute of Science, Bengaluru, 560012, India
 
 <sup>4</sup>Ashoka Trust for Research in Ecology and the Environment, Jakkur Post, Bengaluru 560064, India
 
