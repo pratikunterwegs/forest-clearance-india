@@ -1,6 +1,6 @@
 --- 
 knit: "bookdown::render_book"
-title: "India must safeguard environmental norms"
+title: "India must strengthen its environmental governance regime"
 author: "Vijay Ramesh, Pratik Rajan Gupte, Mridula Mary Paul, and Sarthak J Shetty"
 date: "`r Sys.Date()`"
 site: bookdown::bookdown_site
@@ -15,11 +15,11 @@ description: ""
 
 # A Letter to the Editor of _Science_
 
-With the stated intention of standardizing and rendering transparent the grant of environmental clearances, in March 2020, the Ministry of Environment, Forests and Climate Change (MoEFCC) of the Government of India, published a revised draft Environmental Impact Assessment (EIA) Notification, titled Draft EIA 2020 (1). Since the EIA process is crucial to balance environmental imperatives with economic development, environmentalists nationwide have voiced concerns with respect to Draft EIA 2020, citing considerable dilution of existing EIA regulations (2, 3). 
+With the stated intention of standardizing and rendering transparent the grant of environmental clearances, in March 2020, the Ministry of Environment, Forests and Climate Change (MoEFCC) of the Government of India, published a revised draft Environmental Impact Assessment (EIA) Notification, titled Draft EIA 2020 (1). Since the EIA process is crucial to balance environmental imperatives with economic development, environmentalists nationwide have voiced concerns with respect to Draft EIA 2020, citing considerable dilution of existing EIA regulations (2). 
 
-The EIA Notification was initially issued in 1994 (4), and further revised by ministerial notification in 2006 (5). MoEFCC forest clearance data (6), 1994 – 2019 for example show that projects applied for significantly more forest area to be cleared when or shortly after a new EIA notification was adopted, with an average 3,579 sq. km. proposed for clearance in 1995 and 2006, just under twice as much as in other years (mean: 1,197 sq. km., quasipoisson Generalised Linear Model t = 2.25, p = 0.0339). Further, applications in 1995 and 2006 were just as successful as in other years (binomial GLM z = -0.019 p = 0.985), and thus 814% more forest area was actually approved for clearance. 
+The EIA Notification was initially issued in 1994 (3), and further revised by ministerial notification in 2006 (4). Analysis of MoEFCC forest clearance data (5) between 1994 and 2019 shows that projects applied for significantly more forest area to be cleared when or shortly after a new EIA notification was adopted, with an average 3,579 sq. km. proposed for clearance in 1995 and 2006, just under twice as much as in other years (mean: 1,197 sq. km., quasipoisson Generalised Linear Model t = 2.25, p = 0.0339). Further, applications in 1995 and 2006 were just as successful as in other years (binomial GLM z = -0.019 p = 0.985), and thus 814% more forest area was actually approved for clearance. 
 
-Applying a 70% success rate observed in forest clearance proposals between 1994 and 2013 to proposals pending since 2014 alone could lead to an additional 9,896 sq. km. forest land lost, twice as much combined as in the preceding twenty years. Provisions in Draft EIA 2020 such as regularisation of existing violations of environmental norms will likely add to the actual forest loss. MoEFCC must reconsider Draft EIA 2020, and strengthen and enforce existing norms if India is to meet national reforestation (7) and international climate targets (8). 
+Applying a 70% success rate observed in forest clearance applications between 1994 and 2013 to project proposals pending since 2014 alone could lead to an additional 9,896 sq. km. of forest land lost, twice as much as in the preceding twenty years combined. Provisions in Draft EIA 2020 such as regularisation of violations of environmental safeguards, or walling off forest land before project approval, will likely cause further irreversible forest loss. MoEFCC must reconsider Draft EIA 2020, and strengthen environmental governance if India is to meet national reforestation (6) and international climate targets (7). 
 
 ![](Figures/fig_area_by_year.png)
 
