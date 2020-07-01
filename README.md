@@ -1,5 +1,7 @@
 # India must strengthen its environmental governance regime
 
+[![DOI](https://zenodo.org/badge/276123653.svg)](https://zenodo.org/badge/latestdoi/276123653)
+
 With the stated intention of standardizing and rendering transparent the grant of environmental clearances, in March 2020, the Ministry of Environment, Forests and Climate Change (MoEFCC) of the Government of India, published a revised draft Environmental Impact Assessment (EIA) Notification, titled Draft EIA 2020 _(1)_. Since the EIA process is crucial to balance environmental imperatives with economic development, environmentalists nationwide have voiced concerns with respect to Draft EIA 2020, citing considerable dilution of existing EIA regulations _(2)_. 
 
 The EIA Notification was initially issued in 1994 _(3)_, and further revised by ministerial notification in 2006 _(4)_. Analysis of MoEFCC forest clearance data _(5)_ between 1994 and 2019 shows that projects applied for significantly more forest area to be cleared when or shortly after a new EIA notification was adopted, with an average 3,579 sq. km. proposed for clearance in 1995 and 2006, just under twice as much as in other years (mean: 1,197 sq. km., quasipoisson Generalised Linear Model t = 2.25, p = 0.0339). Further, applications in 1995 and 2006 were just as successful as in other years (binomial GLM z = -0.019 p = 0.985), and thus 814% more forest area was actually approved for clearance. 
@@ -7,6 +9,8 @@ The EIA Notification was initially issued in 1994 _(3)_, and further revised by 
 Applying a 70% success rate observed in forest clearance applications between 1994 and 2013 to project proposals pending since 2014 alone could lead to an additional 9,896 sq. km. of forest land lost, twice as much as in the preceding twenty years combined. Provisions in Draft EIA 2020 such as regularisation of violations of environmental safeguards, or walling off forest land before project approval, will likely cause further irreversible forest loss. MoEFCC must reconsider Draft EIA 2020, and strengthen environmental governance if India is to meet national reforestation _(6)_ and international climate targets _(7)_.
 
 ![Forest area applied to be cleared 1994 -- 2020. Colours represent the outcomes of the applications.](https://github.com/pratikunterwegs/forest-clearance-india/blob/master/Figures/fig_area_by_year.png)
+
+## Authors
 
 **Vijay Ramesh**<sup>1*</sup>, **Pratik Gupte**<sup>2</sup>, **Mridula Mary Paul**<sup>3</sup>, **Sarthak J Shetty**<sup>4</sup>
 
@@ -20,7 +24,7 @@ Applying a 70% success rate observed in forest clearance applications between 19
 
 <sup>*</sup>Corresponding author. Email: vr2352@columbia.edu 
 
-References and notes:
+## References and notes:
 
 1. MoEFCC, “Draft Environmental Impact Assessment Notification” (New Delhi, 2020).
 2. V. Chandrashekhar, India’s push to relax environmental assessment rules amid pandemic draws criticism. Science (80-. ). (2020), (available at https://www.sciencemag.org/news/2020/05/india-s-push-relax-environmental-assessment-rules-amid-pandemic-draws-criticism).
@@ -30,7 +34,7 @@ References and notes:
 6. B. Borah, A. Bhattacharjee, N. Ishwar, “Bonn Challenge and India: Progress on restoration efforts across states and landscapes.” (New Delhi, 2018), (available at https://portals.iucn.org/library/sites/library/files/documents/2018-026-En.pdf).
 7. M. Aggarwal, India needs to double rate of forest cover expansion to achieve Paris Agreement target. Mongabay India (2019), (available at https://india.mongabay.com/2019/11/paris-agreement-goals-india-needs-to-double-forest-cover-expansion-rate/).
 
-8. GitHub repository with supporting: https://github.com/pratikunterwegs/forest-clearance-india
+8. Code and analyses are available on Zenodo: Pratik Gupte, & Vijay Ramesh. (2020, July 1). pratikunterwegs/forest-clearance-india: Version_0.9_initial_release (Version v0.9). Zenodo. http://doi.org/10.5281/zenodo.3925793
 
 ---
 

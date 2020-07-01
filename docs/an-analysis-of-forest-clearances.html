@@ -215,6 +215,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </div>
 <div id="post-2014-data" class="section level3">
 <h3><span class="header-section-number">2.1.2</span> Post-2014 data</h3>
+<p>We do not consider lease renewals in our analysis. This is a simple way to avoid double counting.</p>
 <div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb5-1" title="1"><span class="co"># get the same data for post 2014 period</span></a>
 <a class="sourceLine" id="cb5-2" title="2">post_<span class="dv">2014</span> &lt;-<span class="st"> </span><span class="kw">list.files</span>(<span class="st">&quot;Data/forest_clearance/&quot;</span>, </a>
 <a class="sourceLine" id="cb5-3" title="3">                        <span class="dt">pattern =</span> <span class="st">&quot;after_2014&quot;</span>,</a>
@@ -351,7 +352,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <a class="sourceLine" id="cb12-14" title="14">           <span class="dt">size =</span> <span class="fl">2.5</span>,</a>
 <a class="sourceLine" id="cb12-15" title="15">           <span class="dt">label =</span> <span class="kw">c</span>(<span class="st">&quot;EIA Notification issued&quot;</span>, </a>
 <a class="sourceLine" id="cb12-16" title="16">                     <span class="st">&quot;EIA Notification amended&quot;</span>,</a>
-<a class="sourceLine" id="cb12-17" title="17">                     <span class="st">&quot;MoEFCC data distinction&quot;</span>),</a>
+<a class="sourceLine" id="cb12-17" title="17">                     <span class="st">&quot;MoEFCC database changes&quot;</span>),</a>
 <a class="sourceLine" id="cb12-18" title="18">           <span class="dt">col =</span> <span class="st">&quot;grey50&quot;</span>,</a>
 <a class="sourceLine" id="cb12-19" title="19">           <span class="dt">angle =</span> <span class="dv">90</span>) <span class="op">+</span></a>
 <a class="sourceLine" id="cb12-20" title="20"><span class="st">  </span><span class="kw">scale_x_continuous</span>(<span class="dt">guide =</span> <span class="kw">guide_axis</span>(<span class="dt">n.dodge =</span> <span class="dv">2</span>),</a>
