@@ -41,7 +41,8 @@ pre_2014 <- mutate(pre_2014,
 # get the same data for post 2014 period
 post_2014 <- list.files("Data/forest_clearance/", 
                         pattern = "after_2014",
-                        full.names = TRUE)
+                        full.names = TRUE) %>% 
+  str_subset("Renew", negate = T)
 post_2014 <- map(post_2014, read_csv)
 post_2014 <- map(post_2014, function(x) {
   mutate_at(x, vars("user_id"), as.character)
@@ -60,10 +61,10 @@ post_2014$year <- post_2014$date_from_ua_to_nodal %>% dmy() %>% year
 
 ```{r}
 # subset
-post_2014 <- select(post_2014, any_of(colnames(pre_2014)))
+post_2014_clean <- select(post_2014, any_of(colnames(pre_2014)))
 
 # bind
-forest_data <- bind_rows(pre_2014, post_2014)
+forest_data <- bind_rows(pre_2014, post_2014_clean)
 
 # correct case
 forest_data$category <- str_to_lower(forest_data$category)
@@ -109,16 +110,16 @@ forest_data <- forest_data %>%
                                        "other"))
 
 # remove duplicate user ids
-forest_data <- forest_data
 ```
 
 ### Area applied for over years
 
 ```{r}
 forest_data %>% 
+  filter(!status %in% "other") %>%
   ggplot() +
   stat_count(aes(x = year, fill = status,
-               weight = area_applied),
+               weight = area_applied * 0.01),
            size = 5,
            geom = "bar", 
            position = "stack") +
@@ -126,13 +127,25 @@ forest_data %>%
                    label = str_to_title,
                    breaks = 1994:2020)+
   scale_y_continuous(labels = scales::comma) +
-  scale_fill_scico_d(palette = "batlow") +
-  facet_grid(~period, scales = "free_x") +
-  coord_cartesian(expand = F) +
+  scale_fill_scico_d(palette = "hawaii",
+                     begin = 0, end = 0.7,
+                     direction = -1,
+                     name = "Proposal status") +
+  theme_test(base_family = "TT Arial")+
+  theme(legend.position = c(0.1,0.85),
+        axis.text.y = element_text(angle = 90,
+                                   hjust = 0.5),
+        panel.grid.major.y = element_line(size = 0.1,
+                                          colour = "grey30"),
+        panel.grid.minor.y = element_line(size = 0.1,
+                                          colour = "grey"))+
+  # facet_grid(~period, scales = "free_x") +
+  coord_cartesian(expand = 0.1) +
   labs(x = "Year",
-       y = "Forest area cleared (hectares)")
+       y = "Forest area cleared (sq. km.)")
 
-ggsave("Figures/fig_area_by_year.png")
+ggsave("Figures/fig_area_by_year.png",
+       dpi = 300)
 ```
 
 ## Rule change years and other years
@@ -141,7 +154,7 @@ ggsave("Figures/fig_area_by_year.png")
 
 ```{r}
 data_rule_change <- forest_data %>%
-  group_by(year) %>% 
+  group_by(year, period) %>% 
   summarise(total_area = sum(area_applied),
             proportion_approved = length(status[status == "successful"]) 
             / length(status)) %>% 
@@ -184,7 +197,8 @@ data_rule_change <- data_rule_change %>%
   mutate(time_to_present = 2020 - year)
 
 # fit a simple glm with binomial family
-model_approval <- glm(proportion_approved ~ event,
+model_approval <- glm(proportion_approved ~ event + 
+                        time_to_present,
                       data = data_rule_change,
                       family = "binomial")
 
