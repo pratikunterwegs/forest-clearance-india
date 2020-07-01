@@ -93,10 +93,11 @@ forest_data <- forest_data %>%
 
 # get period
 forest_data <- forest_data %>% 
+  filter(year < 2020) %>% 
   mutate(period = case_when(
     year < 2006 ~ "2000 - 2005",
     year >= 2006 & year < 2014 ~ "2006 - 2013",
-    year >= 2014 ~ "2014 - 2020",
+    year >= 2014 ~ "2014 - 2019",
     T ~ NA_character_
   )) %>% 
   drop_na(period)
@@ -115,37 +116,53 @@ forest_data <- forest_data %>%
 ### Area applied for over years
 
 ```{r}
-forest_data %>% 
-  filter(!status %in% "other") %>%
   ggplot() +
-  stat_count(aes(x = year, fill = status,
-               weight = area_applied * 0.01),
-           size = 5,
-           geom = "bar", 
-           position = "stack") +
+  geom_vline(xintercept = c(c(1994, 2006, 2014)),
+             col = "indianred", size = 0.2) +
+  stat_count(data = forest_data %>% 
+               filter(!status %in% "other"),
+               aes(x = year, fill = status,
+                   weight = area_applied * 0.01),
+             # width = 0.75,
+             geom = "bar", 
+             position = "stack") +
+  annotate("text",
+           x = c(1994, 2006, 2014)-c(0.5),
+           y = 4500,
+           size = 2.5,
+           label = c("EIA Notification issued", 
+                     "EIA Notification amended",
+                     "MoEFCC data distinction"),
+           col = "grey50",
+           angle = 90) +
   scale_x_continuous(guide = guide_axis(n.dodge = 2),
                    label = str_to_title,
-                   breaks = 1994:2020)+
-  scale_y_continuous(labels = scales::comma) +
+                   breaks = 1994:2019)+
+  scale_y_continuous(labels = scales::comma_format(suffix = " sq. km."),
+                     breaks = seq(2,6,2)*1e3) +
   scale_fill_scico_d(palette = "hawaii",
                      begin = 0, end = 0.7,
                      direction = -1,
                      name = "Proposal status") +
-  theme_test(base_family = "TT Arial")+
-  theme(legend.position = c(0.1,0.85),
+  theme_test(base_family = "TT Arial",
+             base_size = 8)+
+  theme(legend.position = c(0.15,0.85),
         axis.text.y = element_text(angle = 90,
                                    hjust = 0.5),
         panel.grid.major.y = element_line(size = 0.1,
-                                          colour = "grey30"),
+                                          colour = "grey"),
         panel.grid.minor.y = element_line(size = 0.1,
                                           colour = "grey"))+
   # facet_grid(~period, scales = "free_x") +
-  coord_cartesian(expand = 0.1) +
-  labs(x = "Year",
-       y = "Forest area cleared (sq. km.)")
+  coord_cartesian(xlim = c(1993, 2020),
+                  ylim = c(0, 7000),
+                  expand = F) +
+  labs(x = "Year of proposal",
+       y = "Forest area proposed to be cleared")
 
 ggsave("Figures/fig_area_by_year.png",
-       dpi = 300)
+       dpi = 300,
+       height = 4, width = 6)
 ```
 
 ## Rule change years and other years
@@ -189,6 +206,40 @@ abs(diff(data_area_summary$mean_area)) / min(data_area_summary$mean_area)
 
 In years in which EIA rules were changed (1995 and 2006), applications are made to clear `r scales::percent(abs(diff(data_area_summary$mean_area)) / min(data_area_summary$mean_area))` more forest land than in other years.
 
+### Area approved in relation to rule change
+
+```{r}
+# summarise the data and print
+data_area_approved <-
+forest_data %>% 
+  filter(status == "successful") %>% 
+  group_by(year) %>% 
+  summarise(total_area = sum(area_applied)) %>%
+  mutate(event = if_else(year %in% c(1995, 2006),
+                         "rule change", "other"))
+
+# fit a simple linear model for area approved
+# quasipoisson for overdispersion
+model_area_approved <- glm(total_area ~ event, 
+   data = data_area_approved,
+   family = "quasipoisson")
+
+# print model summary
+summary(model_area_approved)
+
+# print table
+data_area_approved_summary <- data_area_approved %>%
+  mutate(total_area_km = total_area * 0.01) %>% 
+  group_by(event) %>% 
+  summarise_at(vars("total_area_km"), .funs = list(mean_area = mean, 
+                                                sd_area = sd))
+
+data_area_approved_summary %>%
+  knitr::kable()
+```
+
+In years in which EIA rules were changed (1995 and 2006), `r scales::percent(abs(diff(data_area_approved_summary$mean_area)) / min(data_area_approved_summary$mean_area))` more forest land was approved for clearance than in other years.
+
 ### Proportion of success in relation to rule change
 
 ```{r}
@@ -205,3 +256,71 @@ model_approval <- glm(proportion_approved ~ event +
 # print summary
 summary(model_approval)
 ```
+
+## Land applied for clearance post 2014
+
+```{r}
+# how much area on average applied for before and after 2014
+area_by_2014 <- forest_data %>% 
+  mutate(period = ifelse(year < 2014, "pre-2014", "post-2014")) %>% 
+  group_by(year, period) %>% 
+  summarise(area_applied = sum(area_applied)) %>% 
+  group_by(period) %>% 
+  summarise_at(vars(area_applied), list(mean_area_per_year = mean))
+
+# print data
+knitr::kable(area_by_2014)
+```
+
+## Estimate forest clearance post 2014
+
+### Proportion of forest area approved pre-2014
+
+Here, we look at the proportion of forest area successfully applied to be cleared. We disregard "pending" applications as their outcome is unknown.
+
+```{r}
+# how much land area was successful as a proportion of decided proposals
+prop_area_approved_pre2014 <- forest_data %>%
+  filter(year < 2014) %>%  
+  summarise(prop_area_approved_pre_2014 = sum(area_applied[status == "successful"]) / 
+              sum(area_applied[status %in% c("successful", "unsuccessful")]))
+
+# total area approved for clearance
+total_area_approved_pre2014 <- forest_data %>%
+  filter(year < 2014, status == "unsuccessful") %>%  
+  .$area_applied %>% 
+  sum(.)
+
+# in sq km
+total_area_approved_pre2014 <- total_area_approved_pre2014 * 0.01
+```
+
+Prior to 2014, `r total_area_approved_pre2014` sq.km. or `r scales::percent(prop_area_approved_pre2014$prop_area_approved_pre_2014)` of forest area proposed to be cleared was actually approved for clearance.
+
+### Total area potentially approved for clearance post 2014
+
+We apply the approval rate of `r scales::percent(prop_area_approved_pre2014$prop_area_approved_pre_2014)` to pending proposals made after 2014, to get a rough estimate of forest area that will potentially be approved for clearance.
+
+```{r}
+# get the approval rate
+approval_rate_pre_2014 <- prop_area_approved_pre2014$prop_area_approved_pre_2014
+
+# what area in sq km may be approved assuming a pre 2014 approval?
+# requires a hectares to sq km conversion
+area_cleared_post_2014 <- forest_data %>% 
+  filter(year >= 2014,
+         status == "pending") %>%
+  summarise(area_potentially_cleared = sum(area_applied) * 
+              approval_rate_pre_2014 * 0.01)
+```
+
+### Projected clearances in relation to pre-2014 clearances
+
+```{r}
+# how much more than pre 2014 approved clearances are the projected 
+# post 2014 clearances?
+area_cleared_post_2014$area_potentially_cleared / total_area_approved_pre2014
+```
+
+
+Assuming a pre-2014 clearance rate, `r scales::comma(area_cleared_post_2014$area_potentially_cleared)` square kilometres are likely to be approved for clearance from post-2014 proposals alone. These **projected** clearances by themselves represent an increase of `r scales::percent(area_cleared_post_2014$area_potentially_cleared / total_area_approved_pre2014)` over all approved clearances in the 20 years preceding 2014. Combined with the area already approved for clearance, this is cause for alarm.
