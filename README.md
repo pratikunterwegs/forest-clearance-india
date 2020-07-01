@@ -34,7 +34,7 @@ Applying a 70% success rate observed in forest clearance applications between 19
 6. B. Borah, A. Bhattacharjee, N. Ishwar, “Bonn Challenge and India: Progress on restoration efforts across states and landscapes.” (New Delhi, 2018), (available at https://portals.iucn.org/library/sites/library/files/documents/2018-026-En.pdf).
 7. M. Aggarwal, India needs to double rate of forest cover expansion to achieve Paris Agreement target. Mongabay India (2019), (available at https://india.mongabay.com/2019/11/paris-agreement-goals-india-needs-to-double-forest-cover-expansion-rate/).
 
-8. Code and analyses are available on Zenodo: Pratik Gupte, & Vijay Ramesh. (2020, July 1). pratikunterwegs/forest-clearance-india: Version_0.9_initial_release (Version v0.9). Zenodo. http://doi.org/10.5281/zenodo.3925793
+8. Code and analyses are available on Zenodo: Pratik Rajan Gupte. (2020, July 1). pratikunterwegs/forest-clearance-india: Version_0.9_initial_release (Version v0.9). Zenodo. http://doi.org/10.5281/zenodo.3925793
 
 ---
 
