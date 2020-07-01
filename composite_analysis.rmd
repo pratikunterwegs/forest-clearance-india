@@ -1,5 +1,7 @@
 ---
+title: India must safeguard environmental norms
 output: html_document
+css: style.css
 editor_options: 
   chunk_output_type: console
 ---
