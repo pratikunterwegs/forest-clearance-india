@@ -50,6 +50,8 @@ pre_2014 <- mutate(pre_2014,
 
 ### Post-2014 data
 
+We do not consider lease renewals in our analysis. This is a simple way to avoid double counting.
+
 ```{r}
 # get the same data for post 2014 period
 post_2014 <- list.files("Data/forest_clearance/", 
@@ -145,7 +147,7 @@ forest_data <- forest_data %>%
            size = 2.5,
            label = c("EIA Notification issued", 
                      "EIA Notification amended",
-                     "MoEFCC data distinction"),
+                     "MoEFCC database changes"),
            col = "grey50",
            angle = 90) +
   scale_x_continuous(guide = guide_axis(n.dodge = 2),

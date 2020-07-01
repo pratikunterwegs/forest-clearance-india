@@ -1,7 +1,7 @@
 --- 
 knit: "bookdown::render_book"
 title: "India must strengthen its environmental governance regime"
-author: "Vijay Ramesh, Pratik Rajan Gupte, Mridula Mary Paul, and Sarthak J Shetty"
+author: Vijay Ramesh<sup>1*</sup>, Pratik Gupte<sup>2</sup>, Mridula Mary Paul<sup>3</sup>, Sarthak J Shetty<sup>4</sup>
 date: "`r Sys.Date()`"
 site: bookdown::bookdown_site
 output: bookdown::gitbook
@@ -23,7 +23,7 @@ Applying a 70% success rate observed in forest clearance applications between 19
 
 ![](Figures/fig_area_by_year.png)
 
-**Vijay Ramesh**<sup>1*</sup>, **Pratik Gupte**<sup>2</sup>, **Mridula Mary Paul**<sup>3</sup>, **Sarthak J Shetty**<sup>4</sup>
+**Affiliations**
 
 <sup>1*</sup>Department of Ecology, Evolution and Environmental Biology, Columbia University, New York, NY 10027
 
