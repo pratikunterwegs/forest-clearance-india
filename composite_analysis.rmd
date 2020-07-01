@@ -140,9 +140,9 @@ forest_data <- forest_data %>%
                    breaks = 1994:2019)+
   scale_y_continuous(labels = scales::comma_format(suffix = " sq. km."),
                      breaks = seq(2,6,2)*1e3) +
-  scale_fill_scico_d(palette = "hawaii",
-                     begin = 0, end = 0.7,
-                     direction = -1,
+  scale_fill_scico_d(palette = "vik",
+                     begin = 0.2, end = 0.8,
+                     direction = 1,
                      name = "Proposal status") +
   theme_test(base_family = "TT Arial",
              base_size = 8)+
