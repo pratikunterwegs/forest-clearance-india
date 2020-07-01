@@ -1,0 +1,11 @@
+book_filename: "Forest-Clearances-India"
+output: 
+  html_document: 
+    fig_caption: yes
+  # pdf_document: 
+  #   geometry: "margin=1in"
+delete_merged_file: true
+output_dir: "docs"
+language:
+  ui:
+    chapter_name: "Section "

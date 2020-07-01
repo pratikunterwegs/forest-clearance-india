@@ -18,4 +18,4 @@ Authors: Vijay Ramesh<sup>1*</sup>, Pratik Gupte<sup>2</sup>, Sarthak J Shetty<s
 
 ---
 
-[Code and results for this letter may be found by clicking on this link]().
+[Code and results for this letter may be found by clicking on this link](https://pratikunterwegs.github.io/forest-clearance-india/).
