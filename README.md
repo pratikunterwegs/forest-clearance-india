@@ -6,6 +6,8 @@ The EIA rules were initially promulgated in 1994 (citation), and amended by mini
 
 Fearing inexplicable forest clearances commensurate with 1995 and 2006 on the adoption of Draft EIA 2020, we urge scientists and concerned parties in India to demand that MOEF&CC data be more easily accessible for independent analysis, and remind scientists worldwide that public scrutiny is essential for transparent governance.
 
+![Forest area applied to be cleared 1994 -- 2020. Colours represent the outcomes of the applications.](https://github.com/pratikunterwegs/forest-clearance-india/blob/master/Figures/fig_area_by_year.png)
+
 Authors: Vijay Ramesh<sup>1*</sup>, Pratik Gupte<sup>2</sup>, Sarthak J Shetty<sup>3</sup>, Mridula Mary Paul<sup>4</sup>, Sahas Barve<sup>5</sup>
 
 <sup>1*</sup>Department of Ecology, Evolution and Environmental Biology, Columbia University, New York, NY 10027
