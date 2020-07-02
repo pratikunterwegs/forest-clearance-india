@@ -2,8 +2,6 @@
 
 [![DOI](https://zenodo.org/badge/276123653.svg)](https://zenodo.org/badge/latestdoi/276123653)
 
-India must strengthen its environmental governance regime 
-
 With the stated intention of standardizing and rendering transparent the grant of environmental clearances, in March 2020, the Ministry of Environment, Forests and Climate Change (MoEFCC) of the Government of India, published a revised draft Environmental Impact Assessment (EIA) Notification, titled Draft EIA 2020 (1). Since the EIA process is crucial to balance environmental imperatives with economic development, environmentalists nationwide have voiced concerns with respect to this draft, citing considerable dilution of existing EIA regulations (2). 
 
 The EIA Notification was initially issued in 1994 (3), and further revised by ministerial notification in 2006 (4). Analysis of MoEFCC forest clearance data (5) between 1994 and 2019 shows that projects applied for significantly more forest area to be cleared in years when or shortly after a new EIA notification was adopted. These years (1995 and 2006) alone saw an average of 3,579 sq. km. each proposed for clearance, a little less than twice the average area proposed in other years (6). Further, applications in 1995 and 2006 were just as successful as they were in other years, and thus 814% more forest area was approved for clearance compared to other years (6). 
