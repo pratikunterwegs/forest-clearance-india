@@ -1,7 +1,7 @@
 --- 
 knit: "bookdown::render_book"
 title: "India must strengthen its environmental governance regime"
-author: Vijay Ramesh<sup>1*</sup>, Pratik Gupte<sup>2</sup>, Mridula Mary Paul<sup>3</sup>, Sarthak J Shetty<sup>4</sup>
+author: Vijay Ramesh<sup>1*</sup>, Pratik Rajan Gupte<sup>2</sup>, Mridula Mary Paul<sup>3</sup>, Sarthak J Shetty<sup>4</sup>
 date: "`r Sys.Date()`"
 site: bookdown::bookdown_site
 output: bookdown::gitbook
@@ -19,7 +19,7 @@ With the stated intention of standardizing and rendering transparent the grant o
 
 The EIA Notification was initially issued in 1994 (3), and further revised by ministerial notification in 2006 (4). Analysis of MoEFCC forest clearance data (5) between 1994 and 2019 shows that projects applied for significantly more forest area to be cleared in years when or shortly after a new EIA notification was adopted. These years, 1995 and 2006, saw ~4,000 sq.km. and ~3,000 sq.km. proposed for clearance, which on average is nearly twice the area proposed in other years (6). Further, applications in 1995 and 2006 were just as successful as they were in other years, and thus 814% more forest area was approved for clearance compared to other years (6). 
 
-Between 1994 and 2013, 70% of forest area proposed for clearances was approved. If this clearance rate were applied to forest areas pending under proposals since 2014, it could mean that an additional ~9,900 sq. km. of forest land would be cleared, about twice as much as in the preceding twenty years combined. Provisions in Draft EIA 2020 such as regularisation of violations of environmental safeguards, or allowing fencing off and levelling forest land before project approval will likely cause further irreversible forest loss. MoEFCC must reconsider Draft EIA 2020, and strengthen environmental governance if India is to meet national reforestation (7) and international climate targets (8).
+Between 1994 and 2013, 70% of forest area proposed for clearances was approved. If this clearance rate were applied to forest areas pending under proposals since 2014, it could mean that an additional ~9,900 sq. km. of forest land would be cleared, about twice as much as in the preceding twenty years combined. Provisions in Draft EIA 2020 such as regularisation of violations of environmental safeguards, or allowing fencing off desired forest land before project approval will likely cause further forest loss and degradation. MoEFCC must reconsider Draft EIA 2020, and strengthen environmental governance if India is to meet national reforestation (7) and international climate targets (8).
 
 ![](Figures/fig_area_by_year.png)
 
