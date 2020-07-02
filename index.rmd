@@ -35,12 +35,11 @@ Between 1994 and 2013, 70% of forest area proposed for clearances was approved. 
 
 **References and notes:**
 
-1. MoEFCC, “Draft Environmental Impact Assessment Notification” (New Delhi, 2020).
+1. MoEFCC, “Draft Notification” (New Delhi, 2020).
 2. V. Chandrashekhar, India’s push to relax environmental assessment rules amid pandemic draws criticism. Science (80-. ). (2020), (available at https://www.sciencemag.org/news/2020/05/india-s-push-relax-environmental-assessment-rules-amid-pandemic-draws-criticism).
-3. MoEFCC, “Environmental Impact Assessment Notification” (New Delhi, 1994).
-4. MoEFCC, “Environmental Impact Assessment Notification” (New Delhi, 2006).
+3. MoEFCC, “The Environmental Impact Assessment Notification” (S.O.60(E), New Delhi, 1994).
+4. MoEFCC, “Environmental Impact Assessment Notification” (S.O.1533(E), New Delhi, 2006).
 5. PARIVESH: A Single Window Integrated System for Environment, Forest, Wildlife and CRZ Clearances, (available at https://parivesh.nic.in/).
-6. B. Borah, A. Bhattacharjee, N. Ishwar, “Bonn Challenge and India: Progress on restoration efforts across states and landscapes.” (New Delhi, 2018), (available at https://portals.iucn.org/library/sites/library/files/documents/2018-026-En.pdf).
-7. M. Aggarwal, India needs to double rate of forest cover expansion to achieve Paris Agreement target. Mongabay India (2019), (available at https://india.mongabay.com/2019/11/paris-agreement-goals-india-needs-to-double-forest-cover-expansion-rate/).
-
-8. Code and analyses are available on Zenodo: Pratik Rajan Gupte. (2020, July 1). pratikunterwegs/forest-clearance-india: Version_0.9_initial_release (Version v0.9). Zenodo. http://doi.org/10.5281/zenodo.3925793
+6. Pratik Rajan Gupte. (2020, July 2). Code for India forest clearance analyses (Version v1.0). Zenodo. http://doi.org/10.5281/zenodo.3928392
+7. B. Borah, A. Bhattacharjee, N. Ishwar, “Bonn Challenge and India: Progress on restoration efforts across states and landscapes.” (New Delhi, 2018), (available at https://portals.iucn.org/library/sites/library/files/documents/2018-026-En.pdf).
+8. M. Aggarwal, India needs to double rate of forest cover expansion to achieve Paris Agreement target. Mongabay India (2019), (available at https://india.mongabay.com/2019/11/paris-agreement-goals-india-needs-to-double-forest-cover-expansion-rate/).
