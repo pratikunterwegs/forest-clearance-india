@@ -1,6 +1,6 @@
 # India must strengthen its environmental governance regime
 
-[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.3928392.svg)](https://doi.org/10.5281/zenodo.3928392)
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.3925792.svg)](https://doi.org/10.5281/zenodo.3925792)
 
 With the stated intention of standardizing and rendering transparent the grant of environmental clearances, in March 2020, the Ministry of Environment, Forest and Climate Change (MoEFCC) of the Government of India, published a revised draft Environmental Impact Assessment (EIA) Notification, titled Draft EIA 2020 (1). Since the EIA process is crucial to balance environmental imperatives with economic development, environmentalists nationwide have voiced concerns with respect to this draft, citing considerable dilution of existing EIA regulations (2).
 
