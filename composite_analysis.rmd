@@ -133,7 +133,8 @@ forest_data <- forest_data %>%
 ```{r fig.cap="Forest area (in sq. km.) proposed for clearance over the years 1994 -- 2019, coloured to show the fraction approved (blue), rejected (brown), and pending decision (grey). Projects applied for nearly twice as much area to be cleared in years when or shortly after a new EIA notification was adopted (1995 and 2006), as in other years. Since the approval rate did not differ significantly among years, 1995 and 2006 saw 814% more forest clearances approved than other years."}
   ggplot() +
   geom_vline(xintercept = c(c(1994, 2006, 2014)),
-             col = "indianred", size = 0.2) +
+             col = "indianred", size = 0.2,
+             lty = c(1, 1, 3)) +
   stat_count(data = forest_data %>% 
                filter(!status %in% "other"),
                aes(x = year, fill = status,
@@ -150,7 +151,7 @@ forest_data <- forest_data %>%
            label = c("EIA Notification issued", 
                      "EIA Notification amended",
                      "MoEFCC database changes"),
-           col = "grey20",
+           col = c("grey20", "grey20", "grey80"),
            angle = 90) +
   scale_x_continuous(guide = guide_axis(n.dodge = 2),
                    label = str_to_title,
