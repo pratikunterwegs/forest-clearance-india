@@ -8,7 +8,9 @@ The EIA Notification was initially issued in 1994 (3), and further revised by mi
 
 Between 1994 and 2013, 70% of forest area proposed for clearances was approved. If this clearance rate were applied to forest areas pending under proposals since 2014, it could mean that an additional ~9,900 sq. km. of forest land would be cleared, about twice as much as in the preceding twenty years combined. Provisions in Draft EIA 2020 such as regularisation of violations of environmental safeguards, or allowing fencing off desired forest land before project approval will likely cause further forest loss and degradation. MoEFCC must reconsider Draft EIA 2020, and strengthen environmental governance if India is to meet national reforestation (7) and international climate targets (8).
 
-![Forest area applied to be cleared 1994 -- 2020. Colours represent the outcomes of the applications.](https://github.com/pratikunterwegs/forest-clearance-india/blob/master/Figures/fig_area_by_year.png)
+![Forest area applied to be cleared 1994 -- 2019. Colours represent the outcomes of the applications.](https://github.com/pratikunterwegs/forest-clearance-india/blob/master/Figures/fig_area_by_year.png)
+
+**Figure 1:** Forest area (in sq. km.) proposed for clearance over the years 1994 -- 2019, coloured to show the fraction approved (blue), rejected (brown), and pending decision (grey). Projects applied for nearly twice as much area to be cleared in years when or shortly after a new EIA notification was adopted (1995 and 2006), as in other years. Since the approval rate did not differ significantly among years, 1995 and 2006 saw 814% more forest clearances approved than other years.
 
 ## Authors
 
