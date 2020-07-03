@@ -139,8 +139,10 @@ forest_data <- forest_data %>%
                aes(x = year, fill = status,
                    weight = area_applied * 0.01),
              # width = 0.75,
+             size = 0.1,
              geom = "bar", 
-             position = "stack") +
+             position = "stack",
+             col = "grey30") +
   annotate("text",
            x = c(1994, 2006, 2014)-c(0.5),
            y = 4500,
@@ -148,7 +150,7 @@ forest_data <- forest_data %>%
            label = c("EIA Notification issued", 
                      "EIA Notification amended",
                      "MoEFCC database changes"),
-           col = "grey50",
+           col = "grey20",
            angle = 90) +
   scale_x_continuous(guide = guide_axis(n.dodge = 2),
                    label = str_to_title,
@@ -156,7 +158,7 @@ forest_data <- forest_data %>%
   scale_y_continuous(labels = scales::comma_format(suffix = " sq. km."),
                      breaks = seq(2,6,2)*1e3) +
   scale_fill_scico_d(palette = "vik",
-                     begin = 0.2, end = 0.8,
+                     begin = 0.3, end = 0.7,
                      direction = 1,
                      name = "Proposal status") +
   theme_test(base_family = "TT Arial",
@@ -177,7 +179,7 @@ forest_data <- forest_data %>%
 
 ggsave("Figures/fig_area_by_year.png",
        dpi = 300,
-       height = 4, width = 6)
+       height = 4, width = 5)
 ```
 
 ## Rule change years and other years
