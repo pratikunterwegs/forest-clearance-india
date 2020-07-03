@@ -10,7 +10,7 @@ Between 1994 and 2013, 70% of forest area proposed for clearances was approved. 
 
 ![Forest area applied to be cleared 1994 -- 2019. Colours represent the outcomes of the applications.](https://github.com/pratikunterwegs/forest-clearance-india/blob/master/Figures/fig_area_by_year.png)
 
-**Figure 1:** Forest area (in sq. km.) proposed for clearance over the years 1994 -- 2019, coloured to show the fraction approved (blue), rejected (brown), and pending decision (grey). Projects applied for nearly twice as much area to be cleared in years when or shortly after a new EIA notification was adopted (1995 and 2006), as in other years. Since the approval rate did not differ significantly among years, 1995 and 2006 saw 814% more forest clearances approved than other years.
+**Figure 1:** Forest area (in sq. km.) proposed for clearance over the years 1994 -- 2019, coloured to show the fraction approved (blue), rejected (brown), and pending decision (grey). Projects applied for nearly twice as much area to be cleared in years when or shortly after a new EIA notification was adopted (1995 and 2006), as in other years. Since the approval rate for projects did not differ significantly among years, 1995 and 2006 saw 814% more forest area approved than other years.
 
 ## Authors
 
