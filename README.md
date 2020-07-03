@@ -16,7 +16,7 @@ Between 1994 and 2013, 70% of forest area proposed for clearances was approved. 
 
 **Vijay Ramesh**<sup>1*</sup>, **Pratik Rajan Gupte**<sup>2</sup>, **Mridula Mary Paul**<sup>3</sup>, **Sarthak J Shetty**<sup>4</sup>
 
-<sup>1*</sup>Department of Ecology, Evolution and Environmental Biology, Columbia University, New York, NY 10027
+<sup>1</sup>Department of Ecology, Evolution and Environmental Biology, Columbia University, New York, NY 10027
 
 <sup>2</sup>Groningen Institute for Evolutionary Life Sciences, University of Groningen, Groningen 9747 AG, The Netherlands
 
