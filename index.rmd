@@ -13,7 +13,7 @@ github-repo: pratikunterwegs/forest-clearance-india
 description: ""
 ---
 
-# A Letter to the Editor of _Science_
+# A Letter to the Editor of _Nature_
 
 Environmental Impact Assessments (EIA) are crucial to balance environmental imperatives with economic development.  In March 2020, the Government of India’s Ministry of Environment, Forest and Climate Change (MoEFCC) published a revised draft Environmental Impact Assessment (EIA) Notification, titled Draft EIA 2020, to make the process of granting project approval more standardized and transparent (1). Environmentalists nationwide have voiced significant concerns with respect to this draft, citing considerable dilution of existing EIA regulations (2). 
 
