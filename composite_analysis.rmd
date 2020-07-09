@@ -9,7 +9,7 @@ editor_options:
 
 # An analysis of forest clearances
 
-**Vijay Ramesh**<sup>1*</sup>, **Pratik Rajan Gupte**<sup>2</sup>, **Mridula Mary Paul**<sup>3</sup>, **Sarthak J Shetty**<sup>4</sup>
+**Vijay Ramesh**<sup>1*</sup>, **Pratik Rajan Gupte**<sup>2</sup>, **Mridula Mary Paul**<sup>3</sup>
 
 <sup>1*</sup>Department of Ecology, Evolution and Environmental Biology, Columbia University, New York, NY 10027
 
